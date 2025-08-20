@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:50:02 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/17 01:57:34 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/08/17 15:39:18 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ class Contact
         void setLastName(std::string lastName);
         void setNickname(std::string nickname);
         void setPhoneNumber(int phoneNumber);
-        void setDarkestSecret(std::string darkestSecret);
-        
+        void setDarkestSecret(std::string darkestSecret);      
 };
 
 #endif
