@@ -1,7 +1,7 @@
 
-NAME = megaphone
+NAME = phonebook
 
-SRC			=	./phonebook.cpp 
+SRC			=	./phonebook.cpp ./contact.cpp ./main.cpp
 				
 OBJ			=	$(SRC:.cpp=.o)
 			
