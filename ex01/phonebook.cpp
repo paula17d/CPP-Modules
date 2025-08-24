@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/22 21:10:40 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/08/24 22:24:50 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void PhoneBook::addContact()
     std::string darkestSecret;
         
 
-    std::cout << "First Name: "; 
-    std::getline(std::cin,firstName); 
+    std::cout << "First Name: "; // prints First Name in terminal
+    std::getline(std::cin,firstName); // gets whatever is entered next to First Name and saves it in firstName variable
     std::cout << "Last Name: "; 
     std::getline(std::cin,lastName); 
     std::cout << "Nickname: "; 
@@ -41,8 +41,8 @@ void PhoneBook::addContact()
     std::cout << "Darkest Secret: "; 
     std::getline(std::cin,darkestSecret); 
     
-    Contact contact(firstName, lastName, nickname, std::atoi(phoneNumber.c_str()), darkestSecret);
-    this->_contact[_numOfAddedContacts] = contact;
+    Contact contact(firstName, lastName, nickname, std::atoi(phoneNumber.c_str()), darkestSecret); // contact saved
+    this->_contacts[_numOfAddedContacts] = contact;
     this->_numOfAddedContacts++;
     if (this->_numOfAddedContacts == 8)
     {
@@ -51,6 +51,44 @@ void PhoneBook::addContact()
 
     std::cout << "num of contacts " << this->_numOfAddedContacts << std::endl;
     std::cout << "Contact has been successfully added." << std::endl;
+}
+
+void PhoneBook::searchContact()
+{
+	std::string selectedOption;
+	
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "|   index  |first name|last name | nickname |" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
+	
+	// go thru all contacts LOOP !!!!!!!!!!!!!!!!!!!!!!!
+    for (int i = 0; i < _numOfAddedContacts; i++) // for loops!
+    {
+        std::cout << "|" << std::setw(10) << i << "|" << std::setw(10) << _contacts[i].getFirstName() << "|" << std::setw(10) << _contacts[i].getLastName() << "|" << std::setw(10) << _contacts[i].getNickname() << "|" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl; 
+    }
+	
+	std::cout << "Enter a contact’s index to display their full information." << std::endl;
+	std::cout << "Enter 11 to go back to main menu." << std::endl;
+	std::getline(std::cin,selectedOption);
+	
+	if (selectedOption == "11") // TODO: rn goes back to menu no matter whats entered (fix) bc in while loop in main
+	{
+		std::cout << "11 has been entered." << std::endl;
+	}
+
+    // else if contact index selected, display that contact
+    else if (std::atoi(selectedOption.c_str()) <= _numOfAddedContacts)
+    {
+        int index = std::atoi(selectedOption.c_str());
+        std::cout << _contacts[index].getFirstName();
+        // std::cout << // last name etc. // TODO: NEXT STEP: finish displaying this 
+        // std::cout <<
+        // std::cout <<
+        // std::cout <<
+    }
+
+    // TODO: else if anything else, display try again w getline
 }
 
 PhoneBook::~PhoneBook()

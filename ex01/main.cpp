@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/22 21:14:07 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/08/24 20:08:41 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main ()
     
     while (true)
     {
-        system("clear"); // deletes terminal
+        // system("clear"); // deletes terminal (whatever is showing up above)
         std::cout << "Please type one of the following commands:" << std::endl;
         std::cout << "ADD (save a new contact)" << std::endl;
         std::cout << "SEARCH (display a specific contact)" << std::endl;
@@ -31,16 +31,16 @@ int main ()
         {
             phonebook.addContact();   
         }   
+        else if (command == "SEARCH")
+        {
+            // std::cout << "contact xyz." << std::endl;
+            phonebook.searchContact();
+        }
+        // else if (command == "EXIT")
+        // {
+        //     std::cout << "program exited." << std::endl;
+        //     // The program quits and the contacts are lost forever!
     }    
-    // else if (command == "SEARCH")
-    // {
-    //     std::cout << "contact xyz." << std::endl;
-    //     // ft:
-    // }
-    // else if (command == "EXIT")
-    // {
-    //     std::cout << "program exited." << std::endl;
-    //     // ft: The program quits and the contacts are lost forever!
     // }
     // else
     // {
