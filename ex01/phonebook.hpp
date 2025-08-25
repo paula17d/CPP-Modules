@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:44:05 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/24 19:59:14 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/25 22:30:25 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PhoneBook
         // setter
         void addContact();
         void searchContact();
+        void displayContactDetails(Contact contact);
 
 };
 

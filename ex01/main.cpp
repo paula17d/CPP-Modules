@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/24 20:08:41 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/25 23:36:32 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main ()
     
     while (true)
     {
-        // system("clear"); // deletes terminal (whatever is showing up above)
+        system("clear"); // deletes terminal (whatever is showing up above)
         std::cout << "Please type one of the following commands:" << std::endl;
         std::cout << "ADD (save a new contact)" << std::endl;
         std::cout << "SEARCH (display a specific contact)" << std::endl;
@@ -28,30 +28,18 @@ int main ()
         std::getline(std::cin,command);
 
         if (command == "ADD")
-        {
             phonebook.addContact();   
-        }   
         else if (command == "SEARCH")
-        {
-            // std::cout << "contact xyz." << std::endl;
             phonebook.searchContact();
+        else if (command == "EXIT")
+        {
+            system("clear");
+            return (0);
         }
-        // else if (command == "EXIT")
-        // {
-        //     std::cout << "program exited." << std::endl;
-        //     // The program quits and the contacts are lost forever!
     }    
-    // }
-    // else
-    // {
-    //     // only use FOR (no while)
-    //     while (command != "ADD" && command != "SEARCH" && command != "EXIT")
-    //     {
-    //         std::cout << "Please try again." << std::endl;
-    //         std::getline(std::cin,command);
-    //     }
-    //     // TODO: exits program even tho typing correctly (fix)
-    // }
-    
     return (0);
 }
+
+// TODO: parse phone number
+// TODO: ctrl D means exit has to happen (no infinite loop should occur)
+// TODO: delete stuff like "contact with name was destroyed successfully" AT END that is printed
