@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/29 16:58:19 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/30 01:11:29 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main ()
 
 // **TODO: parse phone number
 // **TODO: ctrl D means exit has to happen (no infinite loop should occur)
-// TODO: fix errors (ex. SEARCH display after 8th & also 9th character is added)
+// **TODO: fix errors (ex. SEARCH display after 8th & also 9th character is added)
+// -------> fixed by saving _numOfAddedContacts in position
 // TODO: delete stuff like "contact with name was destroyed successfully" AT END that is printed
 // TODO: delete testc.cpp file

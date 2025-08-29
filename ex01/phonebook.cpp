@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/29 17:24:31 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/30 01:19:45 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ PhoneBook::PhoneBook()
     std::cout << "PhoneBook has been created." << std::endl;  
 }
 
+// helper ft for addContact
 bool PhoneBook::isValidPhoneNumber(std::string phoneNumber)
 {
     for (char c : phoneNumber) // range-based for loop (goes through each character in specified string)
@@ -55,19 +56,18 @@ void PhoneBook::addContact()
     std::cout << "Darkest Secret: "; 
     std::getline(std::cin,darkestSecret); 
     
+    // ensures index always stays between 0–7. 
+    // % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)
+    _position = _numOfAddedContacts % 8; // new
     Contact contact(firstName, lastName, nickname, std::atoi(phoneNumber.c_str()), darkestSecret); // contact saved
-    this->_contacts[_numOfAddedContacts] = contact;
+    this->_contacts[_position] = contact; // new
     this->_numOfAddedContacts++;
-    if (this->_numOfAddedContacts == 8)
-    {
-        this->_numOfAddedContacts = 0;
-    }
 
     std::cout << "num of contacts " << this->_numOfAddedContacts << std::endl;
-    std::cout << "Contact has been successfully added." << std::endl; // TODO: fix: doesnt display when contact has been added
-    // TODO: FIX if eighth contact has been added, then the whole list disappears??. should not disappear and 9th contact should replace 1st contact
+    std::cout << "Contact has been successfully added." << std::endl;
 }
 
+// helper ft for searchContact
 void PhoneBook::displayContactDetails(Contact contact)
 {
     std::cout << "First Name: " << contact.getFirstName() << std::endl;
@@ -86,10 +86,13 @@ void PhoneBook::searchContact()
 	std::cout << "---------------------------------------------" << std::endl;
 	
 	// prints list of all added contacts
-    for (int i = 0; i < _numOfAddedContacts; i++) // for loops!
+    int updatedNumOfAddedContacts = _numOfAddedContacts; // new
+    if (_numOfAddedContacts > 8)
+        updatedNumOfAddedContacts = 8;
+    for (int i = 0; i < updatedNumOfAddedContacts; i++) // new
     {
         std::cout << "|" << std::setw(10) << i << "|" << std::setw(10) << _contacts[i].getFirstName() << "|" << std::setw(10) << _contacts[i].getLastName() << "|" << std::setw(10) << _contacts[i].getNickname() << "|" << std::endl;
-        std::cout << "---------------------------------------------" << std::endl; 
+        std::cout << "---------------------------------------------" << std::endl;
     }
 	
 	std::cout << "Enter a contact’s index to display their full information." << std::endl;
