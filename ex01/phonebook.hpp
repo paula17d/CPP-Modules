@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:44:05 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/25 22:30:25 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/29 14:41:55 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "contact.hpp"
 #include <iomanip>
+#include <cctype>
 
 class PhoneBook
 {
@@ -32,6 +33,7 @@ class PhoneBook
         void addContact();
         void searchContact();
         void displayContactDetails(Contact contact);
+        bool isValidPhoneNumber(std::string phoneNumber);
 
 };
 

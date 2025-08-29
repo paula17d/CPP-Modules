@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/25 23:23:36 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:24:31 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ PhoneBook::PhoneBook()
     std::cout << "PhoneBook has been created." << std::endl;  
 }
 
+bool PhoneBook::isValidPhoneNumber(std::string phoneNumber)
+{
+    for (char c : phoneNumber) // range-based for loop (goes through each character in specified string)
+    {
+        if (!std::isdigit(c))
+            return false;
+    }
+    return true;
+}
+
 void PhoneBook::addContact()
 {   
     std::string firstName;
@@ -28,7 +38,6 @@ void PhoneBook::addContact()
     std::string phoneNumber;
     std::string darkestSecret;
         
-
     std::cout << "First Name: "; // prints First Name in terminal
     std::getline(std::cin,firstName); // gets whatever is entered next to First Name and saves it in firstName variable
     std::cout << "Last Name: "; 
@@ -36,7 +45,13 @@ void PhoneBook::addContact()
     std::cout << "Nickname: "; 
     std::getline(std::cin,nickname); 
     std::cout << "Phone Number: "; 
-    std::getline(std::cin,phoneNumber); 
+    std::getline(std::cin,phoneNumber);
+    while (!isValidPhoneNumber(phoneNumber)) // parse phone number ft
+    {
+        std::cout << "***ERROR*** Invalid phone number. Must contain digits only. Please try again." << std::endl;
+        std::cout << "Phone Number: ";
+        std::getline(std::cin,phoneNumber);
+    }
     std::cout << "Darkest Secret: "; 
     std::getline(std::cin,darkestSecret); 
     
@@ -49,7 +64,8 @@ void PhoneBook::addContact()
     }
 
     std::cout << "num of contacts " << this->_numOfAddedContacts << std::endl;
-    std::cout << "Contact has been successfully added." << std::endl;
+    std::cout << "Contact has been successfully added." << std::endl; // TODO: fix: doesnt display when contact has been added
+    // TODO: FIX if eighth contact has been added, then the whole list disappears??. should not disappear and 9th contact should replace 1st contact
 }
 
 void PhoneBook::displayContactDetails(Contact contact)
