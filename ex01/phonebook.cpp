@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/30 01:19:45 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/31 03:14:46 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PhoneBook::PhoneBook()
 {
     _numOfAddedContacts = 0;
     
-    std::cout << "PhoneBook has been created." << std::endl;  
+    // std::cout << "PhoneBook has been created." << std::endl;  
 }
 
 // helper ft for addContact
@@ -40,7 +40,14 @@ void PhoneBook::addContact()
     std::string darkestSecret;
         
     std::cout << "First Name: "; // prints First Name in terminal
-    std::getline(std::cin,firstName); // gets whatever is entered next to First Name and saves it in firstName variable
+    // std::getline(std::cin,firstName); // gets whatever is entered next to First Name and saves it in firstName variable
+    while (firstName.empty() || !std::getline(std::cin,firstName)) // TODO: fix: last one for ctrl d
+    {
+        std::cout << "***ERROR*** Invalid First Name. Cannot be empty. Please try again." << std::endl;
+        std::cout << "First Name: ";
+        std::getline(std::cin,firstName);
+    }
+        
     std::cout << "Last Name: "; 
     std::getline(std::cin,lastName); 
     std::cout << "Nickname: "; 
@@ -58,13 +65,13 @@ void PhoneBook::addContact()
     
     // ensures index always stays between 0–7. 
     // % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)
-    _position = _numOfAddedContacts % 8; // new
+    // _position = _numOfAddedContacts % 8; // new
     Contact contact(firstName, lastName, nickname, std::atoi(phoneNumber.c_str()), darkestSecret); // contact saved
-    this->_contacts[_position] = contact; // new
+    this->_contacts[_numOfAddedContacts % 8] = contact; // new
     this->_numOfAddedContacts++;
-
-    std::cout << "num of contacts " << this->_numOfAddedContacts << std::endl;
     std::cout << "Contact has been successfully added." << std::endl;
+    std::cout << "num of contacts " << this->_numOfAddedContacts << std::endl;
+
 }
 
 // helper ft for searchContact
@@ -114,5 +121,5 @@ void PhoneBook::searchContact()
 
 PhoneBook::~PhoneBook()
 {
-    std::cout << "PhoneBook was destroyed successfully." << std::endl;
+    // std::cout << "PhoneBook was destroyed successfully." << std::endl;
 }

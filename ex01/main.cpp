@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/30 01:11:29 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/31 03:15:42 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int main ()
     return 0;
 }
 
-// **TODO: parse phone number
-// **TODO: ctrl D means exit has to happen (no infinite loop should occur)
-// **TODO: fix errors (ex. SEARCH display after 8th & also 9th character is added)
-// -------> fixed by saving _numOfAddedContacts in position
+
 // TODO: delete stuff like "contact with name was destroyed successfully" AT END that is printed
 // TODO: delete testc.cpp file
+// TODO: A saved contact can’t have empty fields (parse) (add for the rest. first name done kinda)
+/// ----> also check  ctrl d in there
+// TODO: should not show more than 10 lines per field in SEARCH list even tho it may be longer
