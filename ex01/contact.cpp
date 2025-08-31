@@ -6,11 +6,11 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:54:51 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/22 17:24:54 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/08/31 19:21:47 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 
 // implementation of constructor (constructor per default)
 Contact::Contact()
@@ -24,13 +24,13 @@ Contact::Contact()
     // ", nickname " << this->_nickname << ", phone number " << this->_phoneNumber << \
     // ", and darkest secret being '" << this->_darkestSecret << \
     // "' was created successfully with the default constructor." << std::endl;
-    std::cout << "empty contact has been created " << std::endl; // comment for eval to test if contacts are empty when executing phonebook
+    // std::cout << "empty contact has been created " << std::endl; // comment for eval to test if contacts are empty when executing phonebook
 }
 
 Contact::Contact(std::string firstName, 
                 std::string lastName,
                 std::string nickname,
-                int phoneNumber,
+                std::string phoneNumber,
                 std::string darkestSecret)
 {
     this->_firstName = firstName;
@@ -38,10 +38,10 @@ Contact::Contact(std::string firstName,
     this->_nickname = nickname;
     this->_phoneNumber = phoneNumber;
     this->_darkestSecret = darkestSecret;
-    std::cout << "contact with name "<< this->_firstName << " " << this->_lastName << \
-    ", and nickname " << this->_nickname << ", phone number " << this->_phoneNumber << \
-    ", and darkest secret being '" << this->_darkestSecret << \
-    "' was created successfully with the personalized constructor." << std::endl;  
+//     std::cout << "contact with name "<< this->_firstName << " " << this->_lastName << \
+//     ", and nickname " << this->_nickname << ", phone number " << this->_phoneNumber << \
+//     ", and darkest secret being '" << this->_darkestSecret << \
+//     "' was created successfully with the personalized constructor." << std::endl;  
 }
 
 void Contact::setFirstName(std::string firstName)
@@ -74,12 +74,12 @@ std::string Contact::getNickname()
     return this->_nickname;
 }
 
-void Contact::setPhoneNumber(int phoneNumber)
+void Contact::setPhoneNumber(std::string phoneNumber)
 {
     this->_phoneNumber = phoneNumber;
 }
 
-int Contact::getPhoneNumber()
+std::string Contact::getPhoneNumber()
 {
     return this->_phoneNumber;
 }
@@ -96,5 +96,5 @@ std::string Contact::getDarkestSecret()
 
 Contact::~Contact()
 {
-    std::cout << "contact with name "<< this->_firstName << " was destroyed successfully." << std::endl;
+    // std::cout << "contact with name "<< this->_firstName << " was destroyed successfully." << std::endl;
 }

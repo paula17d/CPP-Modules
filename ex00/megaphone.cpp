@@ -20,8 +20,3 @@ int main (int argc, char **argv)
 
     return (0);
 }
-
-//1. print sth in terminal 
-//2. print sth in terminal but from variable
-//2. print input in terminal
-//3. print input all capitalized in terminal

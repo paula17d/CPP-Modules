@@ -6,12 +6,12 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 17:16:26 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/08/31 19:22:08 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "Phonebook.hpp"
 
 int main ()
 {
@@ -20,18 +20,18 @@ int main ()
     
     while (true)
     {
-        // system("clear"); // deletes terminal (whatever is showing up above)
+        system("clear"); // deletes terminal (whatever is showing up above)
         std::cout << "Please type one of the following commands:" << std::endl;
         std::cout << "  ADD (save a new contact)" << std::endl;
         std::cout << "  SEARCH (display a specific contact)" << std::endl;
         std::cout << "  EXIT (quit the program)" << std::endl;
         std::getline(std::cin,command);
 
-        if (command == "ADD" || command == "1")
+        if (command == "ADD")
             phonebook.addContact();   
-        else if (command == "SEARCH"|| command == "2")
+        else if (command == "SEARCH")
             phonebook.searchContact();
-        else if (command == "EXIT" || command == "3")
+        else if (command == "EXIT")
         {
             system("clear");
             return 0;
@@ -54,6 +54,6 @@ int main ()
 
 // TODO: delete stuff like "contact with name was destroyed successfully" AT END that is printed
 // TODO: delete testc.cpp file
-// TODO: A saved contact can’t have empty fields (parse) (add for the rest. first name done kinda)
+// **TODO: A saved contact can’t have empty fields (parse) (add for the rest. first name done kinda)
 /// ----> also check  ctrl d in there
-// TODO: should not show more than 10 lines per field in SEARCH list even tho it may be longer
+// **TODO: should not show more than 10 lines per field in SEARCH list even tho it may be longer
