@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 03:14:46 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:39:54 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ bool PhoneBook::isValidPhoneNumber(std::string phoneNumber)
     return true;
 }
 
+bool PhoneBook::isEmpty(std::string input)
+{
+    if (input.empty())
+        return true;
+        
+    for (char c : input)
+    {
+        if (!(c == ' '  || c == '\t' || c == '\n' ||
+            c == '\v' || c == '\f' || c == '\r'))
+            return false;
+    }
+    return true;
+}
+
 void PhoneBook::addContact()
 {   
     std::string firstName;
@@ -39,29 +53,48 @@ void PhoneBook::addContact()
     std::string phoneNumber;
     std::string darkestSecret;
         
-    std::cout << "First Name: "; // prints First Name in terminal
-    // std::getline(std::cin,firstName); // gets whatever is entered next to First Name and saves it in firstName variable
-    while (firstName.empty() || !std::getline(std::cin,firstName)) // TODO: fix: last one for ctrl d
+    // gets whatever is entered next to First Name and saves it in firstName variable
+    while (this->isEmpty(firstName)) // TODO: fix: last one for ctrl d
     {
-        std::cout << "***ERROR*** Invalid First Name. Cannot be empty. Please try again." << std::endl;
         std::cout << "First Name: ";
         std::getline(std::cin,firstName);
+        if (std::cin.eof()) // ctrl + D check
+            return ;
     }
-        
-    std::cout << "Last Name: "; 
-    std::getline(std::cin,lastName); 
-    std::cout << "Nickname: "; 
-    std::getline(std::cin,nickname); 
-    std::cout << "Phone Number: "; 
-    std::getline(std::cin,phoneNumber);
-    while (!isValidPhoneNumber(phoneNumber)) // parse phone number ft
+    while (this->isEmpty(lastName)) // TODO: fix: last one for ctrl d
     {
-        std::cout << "***ERROR*** Invalid phone number. Must contain digits only. Please try again." << std::endl;
-        std::cout << "Phone Number: ";
-        std::getline(std::cin,phoneNumber);
+        std::cout << "Last Name: ";
+        std::getline(std::cin,lastName);
+        if (std::cin.eof()) // ctrl + D check
+            return ;
     }
-    std::cout << "Darkest Secret: "; 
-    std::getline(std::cin,darkestSecret); 
+    while (this->isEmpty(nickname)) // TODO: fix: last one for ctrl d
+    { 
+        std::cout << "Nickname: "; 
+        std::getline(std::cin,nickname); 
+        if (std::cin.eof()) // ctrl + D check
+            return ;
+    }
+    while (this->isEmpty(phoneNumber)) // TODO: fix: last one for ctrl d
+    { 
+        std::cout << "Phone Number: "; 
+        std::getline(std::cin,phoneNumber);
+        while (!isValidPhoneNumber(phoneNumber)) // parse phone number ft
+        {
+            std::cout << "***ERROR*** Invalid phone number. Must contain digits only. Please try again." << std::endl;
+            std::cout << "Phone Number: ";
+            std::getline(std::cin,phoneNumber);
+        }
+        if (std::cin.eof()) // ctrl + D check
+            return ;
+    }
+    while (this->isEmpty(darkestSecret)) // TODO: fix: last one for ctrl d
+    { 
+        std::cout << "Darkest Secret: "; 
+        std::getline(std::cin,darkestSecret); 
+        if (std::cin.eof()) // ctrl + D check
+            return ;
+    }
     
     // ensures index always stays between 0–7. 
     // % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)

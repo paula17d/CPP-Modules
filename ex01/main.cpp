@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 03:15:42 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:16:26 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ int main ()
     
     while (true)
     {
-        system("clear"); // deletes terminal (whatever is showing up above)
+        // system("clear"); // deletes terminal (whatever is showing up above)
         std::cout << "Please type one of the following commands:" << std::endl;
         std::cout << "  ADD (save a new contact)" << std::endl;
         std::cout << "  SEARCH (display a specific contact)" << std::endl;
         std::cout << "  EXIT (quit the program)" << std::endl;
         std::getline(std::cin,command);
 
-        if (command == "ADD")
+        if (command == "ADD" || command == "1")
             phonebook.addContact();   
-        else if (command == "SEARCH")
+        else if (command == "SEARCH"|| command == "2")
             phonebook.searchContact();
-        else if (command == "EXIT")
+        else if (command == "EXIT" || command == "3")
         {
             system("clear");
             return 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:44:05 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 00:39:22 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/08/31 17:37:43 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class PhoneBook
         void searchContact();
         void displayContactDetails(Contact contact);
         bool isValidPhoneNumber(std::string phoneNumber);
+        bool isEmpty(std::string input);
 };
 
 #endif
