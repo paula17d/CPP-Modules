@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/09/01 22:18:36 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/09/01 22:39:28 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 PhoneBook::PhoneBook()
 {
     _numOfAddedContacts = 0;
-    // std::cout << "PhoneBook has been created." << std::endl;  
 }
 
 // helper ft for addContact
@@ -95,9 +94,8 @@ void PhoneBook::addContact()
             return ;
     }
     
-    // ensures index always stays between 0–7. 
     Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret); // new contact created
-    this->_contacts[_numOfAddedContacts % 8] = contact; // put in array of contacts ;  % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)
+    this->_contacts[_numOfAddedContacts % 8] = contact; // put in array of contacts ;  % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st): ensures index always stays between 0–7. 
     this->_numOfAddedContacts++;
 }
 
