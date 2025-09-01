@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 22:46:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 19:22:08 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/09/01 22:20:40 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main ()
     
     while (true)
     {
-        system("clear"); // deletes terminal (whatever is showing up above)
+        system("clear"); // clears terminal
         std::cout << "Please type one of the following commands:" << std::endl;
         std::cout << "  ADD (save a new contact)" << std::endl;
         std::cout << "  SEARCH (display a specific contact)" << std::endl;
@@ -37,11 +37,9 @@ int main ()
             return 0;
         }
         
-        /*
-        Without checking std::cin.eof(), pressing Ctrl+D causes std::getline to fail and the input stream enters an EOF state,
-        so none of the above conditions match, so loop appears stuck. 
-        Adding the check detects EOF immediately, allowing the program to exit gracefully.
-        */
+        // Without checking std::cin.eof(), pressing Ctrl+D causes std::getline to fail and the input stream enters an EOF state,
+        // so none of the above conditions match, so loop appears stuck. 
+        // Adding the check detects EOF immediately, allowing the program to exit gracefully.
         if (std::cin.eof())
         {
             system("clear");
@@ -50,10 +48,3 @@ int main ()
     }    
     return 0;
 }
-
-
-// TODO: delete stuff like "contact with name was destroyed successfully" AT END that is printed
-// TODO: delete testc.cpp file
-// **TODO: A saved contact can’t have empty fields (parse) (add for the rest. first name done kinda)
-/// ----> also check  ctrl d in there
-// **TODO: should not show more than 10 lines per field in SEARCH list even tho it may be longer

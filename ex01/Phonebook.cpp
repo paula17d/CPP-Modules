@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:51:47 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/08/31 19:21:52 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/09/01 22:18:36 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,49 +57,47 @@ void PhoneBook::addContact()
     {
         std::cout << "First Name: ";
         std::getline(std::cin,firstName);
-        if (std::cin.eof()) // ctrl + D check
+        if (std::cin.eof())  // ctrl + D check
             return ;
     }
     while (this->isEmpty(lastName))
     {
         std::cout << "Last Name: ";
         std::getline(std::cin,lastName);
-        if (std::cin.eof()) // ctrl + D check
+        if (std::cin.eof())
             return ;
     }
     while (this->isEmpty(nickname))
     { 
         std::cout << "Nickname: "; 
         std::getline(std::cin,nickname); 
-        if (std::cin.eof()) // ctrl + D check
+        if (std::cin.eof())
             return ;
     }
     while (this->isEmpty(phoneNumber)) 
     { 
         std::cout << "Phone Number: "; 
         std::getline(std::cin,phoneNumber);
-        while (!isValidPhoneNumber(phoneNumber)) // parse phone number ft
+        while (!isValidPhoneNumber(phoneNumber)) // parse phone number 
         {
             std::cout << "***ERROR*** Invalid phone number. Must contain digits only. Please try again." << std::endl;
             std::cout << "Phone Number: ";
             std::getline(std::cin,phoneNumber);
         }
-        if (std::cin.eof()) // ctrl + D check
+        if (std::cin.eof())
             return ;
     }
     while (this->isEmpty(darkestSecret))
     { 
         std::cout << "Darkest Secret: "; 
         std::getline(std::cin,darkestSecret); 
-        if (std::cin.eof()) // ctrl + D check
+        if (std::cin.eof())
             return ;
     }
     
     // ensures index always stays between 0–7. 
-    // % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)
-    // _position = _numOfAddedContacts % 8; // new
-    Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret); // contact saved
-    this->_contacts[_numOfAddedContacts % 8] = contact; // new
+    Contact contact(firstName, lastName, nickname, phoneNumber, darkestSecret); // new contact created
+    this->_contacts[_numOfAddedContacts % 8] = contact; // put in array of contacts ;  % gives the remainder after division, so contact 8 % 8 = 0, 9 % 8 = 1, etc. (bc 9th contact has to replace 1st)
     this->_numOfAddedContacts++;
 }
 
@@ -113,7 +111,7 @@ void PhoneBook::displayContactDetails(Contact contact)
     std::cout << "Darkest Secret: " << contact.getDarkestSecret() << std::endl;
 }
 
-// if input more than 10 characters, replace 10th with . 
+// if input has more than 10 characters, replace 10th with . 
 std::string PhoneBook::adjustOutputForSearch(std::string input)
 {
     std::string adjustedOutput;
@@ -135,11 +133,11 @@ void PhoneBook::searchContact()
 	std::cout << "|   index  |first name|last name | nickname |" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
 	
-	// prints list of all added contacts
-    int updatedNumOfAddedContacts = _numOfAddedContacts; // new
+	// prints search list of all added contacts
+    int updatedNumOfAddedContacts = _numOfAddedContacts;
     if (_numOfAddedContacts > 8)
         updatedNumOfAddedContacts = 8;
-    for (int i = 0; i < updatedNumOfAddedContacts; i++) // new
+    for (int i = 0; i < updatedNumOfAddedContacts; i++)
     {
         std::cout << "|" << std::setw(10) << i
           << "|" << std::setw(10) << this->adjustOutputForSearch(_contacts[i].getFirstName())
@@ -168,5 +166,4 @@ void PhoneBook::searchContact()
 
 PhoneBook::~PhoneBook()
 {
-    // std::cout << "PhoneBook was destroyed successfully." << std::endl;
 }
