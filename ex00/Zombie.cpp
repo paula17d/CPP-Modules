@@ -6,32 +6,35 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 16:02:34 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/10/25 19:49:38 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/10/25 20:40:51 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Zombie.h"
 
-// default constructor
+// Default constructor
 Zombie::Zombie()
 {
     this->name = "default zombie";
 }
 
-// personalized constructor
+// Personalized constructor
 Zombie::Zombie(std::string name)
 {
     this->name = name;
 }
 
+// Zombies announce themselves as follows:
 void Zombie::announce(void)
 {
-    // <name>: BraiiiiiiinnnzzzZ...
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << MAGENTA << this->name << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
 }
 
-// deconstructor
+/*
+Deconstructor: Zombies must be destroyed when you no longer need them. The destructor must print
+a message with the name of the zombie for debugging purposes.
+*/
 Zombie::~Zombie()
 {
-    // print message with name here 
+    std::cout << RED << this->name << ": Zombie destroyed." << RESET << std::endl;
 }
