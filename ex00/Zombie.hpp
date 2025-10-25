@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:54:54 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/10/25 19:52:26 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:25:07 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+
+// Reset (for printing purposes)
+#define RESET   "\033[0m"
+
+// Regular Colors (for printing purposes)
+#define BLACK   "\033[30m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
 
 class Zombie
 {

@@ -6,11 +6,11 @@
 #    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/25 15:51:08 by pauladretta       #+#    #+#              #
-#    Updated: 2025/10/25 20:53:55 by pdrettas         ###   ########.fr        #
+#    Updated: 2025/10/25 22:28:15 by pdrettas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain
+NAME = ex02
 
 SRC			=	./main.cpp
 			

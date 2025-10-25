@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+         #
+#    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/25 15:51:08 by pauladretta       #+#    #+#              #
-#    Updated: 2025/10/25 15:53:07 by pauladretta      ###   ########.fr        #
+#    Updated: 2025/10/25 22:28:21 by pdrettas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = ex00
 
 SRC			=	./newZombie.cpp ./randomChump.cpp ./main.cpp ./Zombie.cpp
 				

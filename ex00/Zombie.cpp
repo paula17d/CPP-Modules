@@ -6,11 +6,11 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 16:02:34 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/10/25 20:40:51 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/10/25 22:24:46 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "Zombie.hpp"
 
 // Default constructor
 Zombie::Zombie()
