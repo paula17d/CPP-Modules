@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:24:54 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/05 17:09:23 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:42:05 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void Harl::debug(void)
 void Harl::info(void)
 {
     std::cout << "I cannot believe adding extra bacon costs more money."
-            << "You didn’t put enough bacon in my burger!"
+            << "You didn’t put enough bacon in my burger! "
             << "If you did, I wouldn’t be asking for more!" << std::endl;    
 }
 
 void Harl::warning(void)
 {
-    std::cout << "I think I deserve to have some extra bacon for free." 
+    std::cout << "I think I deserve to have some extra bacon for free. " 
             << "I’ve been coming for years, " 
             << "whereas you started working here just last month." << std::endl;
 }
@@ -39,17 +39,17 @@ void Harl::error(void)
 }
 
 /*
-here the msg ft is chosen depending on the string level ("DEBUG", ...)
-1. Declaring a pointer to a member function
+1. Declaring a pointer to member functions in an array
 2. Call functions via pointer 
 */
-void Harl::complain(std::string level)
+void Harl::complain(std::string level) // level = warning
 {
-    // (void) level;
-    Harl harl;
     void(Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; // pointer in the class Harl points to debug ft in Harl
-    
-    (harl.*ptr[i])(); // call function via pointer (in this case debug pointer)
-}
+    std::string input_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-// go through loop and match
+    int i = 0;
+    while (i < 4 && level != input_level[i])
+        i++;
+    
+    (this->*ptr[i])();
+}
