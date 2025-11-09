@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 19:24:44 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/10/29 20:50:17 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:41:19 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	Zombie *horde;
 	int N;
 	
-	N = 3;
+	N = 5;
 	horde = zombieHorde(N, "Joe");
 	
 	for (int i = 0; i < N; i++)

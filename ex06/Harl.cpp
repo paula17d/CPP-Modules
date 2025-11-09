@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:24:54 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/05 20:24:19 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/11/09 20:47:28 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void Harl::error(void)
 }
 
 /*
-1. Declaring a pointer to member functions in an array
+1. Declaring a pointer to member functions of class Harl in an array
 2. Call functions via pointer 
 */
-void Harl::complain(std::string level) // level = warning
+void Harl::complain(std::string level)
 {
-    void(Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; // pointer in the class Harl points to debug ft in Harl
+    void(Harl::*ptr[])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string input_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     int i = 0;
@@ -59,7 +59,7 @@ void Harl::complain_filter(std::string level)
     std::string input_level[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
     int i = 0;
-    while (i < 4 && level != input_level[i]) // TODO:possibly remove this or in ft above bc double (check how)
+    while (i < 4 && level != input_level[i])
         i++;
         
     switch (i)
@@ -68,14 +68,17 @@ void Harl::complain_filter(std::string level)
             std::cout << "[ DEBUG ]" << std::endl;
             this->complain("DEBUG");
             std::cout << std::endl;
+            [[fallthrough]];
         case (1):
             std::cout << "[ INFO ]" << std::endl;
             this->complain("INFO");
             std::cout << std::endl;
+            [[fallthrough]];
         case (2):
             std::cout << "[ WARNING ]" << std::endl;
             this->complain("WARNING");
             std::cout << std::endl;
+            [[fallthrough]];
         case (3):
             std::cout << "[ ERROR ]" << std::endl;
             this->complain("ERROR");
