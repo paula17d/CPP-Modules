@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 14:41:42 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/14 18:41:29 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/14 18:21:55 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 // default constructor
 ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
 {
-    std::cout << "ClapTrap with Name: " << this->_name << " with default constuctor created" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << "with default constuctor created" << std::endl;
 }
 
 // personalized constructor
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), 
     _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap with Name: " << this->_name << " with personalized constuctor created" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << "with personalized constuctor created" << std::endl;
 }
 
 // copy constructor
@@ -50,7 +50,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &og)
 // deconstructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap with Name: " << this->_name << " with deconstuctor destroyed" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << "with deconstuctor destroyed" << std::endl;
 }
 
 // getters
@@ -103,8 +103,8 @@ void ClapTrap::attack(const std::string& target)
     if (this->_energyPoints > 0 && this->_hitPoints > 0)
     {
         this->_energyPoints--;
-        std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " 
-        << this->_attackDamage << " points of damage!" << std::endl;
+        std::cout << "ClapTrap" << this->_name << "attacks" << target << "causing" 
+        << this->_attackDamage << "points of damage!" << std::endl;
     }
     else
     {
@@ -127,8 +127,8 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->_hitPoints += amount;
         this->_energyPoints--;
-        std::cout << "ClapTrap " << this->_name << " repairs itself regaining " 
-        << amount << " hit points! -> New Total: " << this->_hitPoints << std::endl;
+        std::cout << "ClapTrap" << this->_name << "repairs itself regaining " 
+        << amount << "hit points! -> New Total: " << this->_hitPoints << std::endl;
     }
     else
     {
