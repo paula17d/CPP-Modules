@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:18:38 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/14 19:46:25 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/16 13:51:12 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int main ()
     
     std::cout << "Energy points of scavTrapThree = " << scavTrapThree.getEnergyPoints() << std::endl;
     
+    scavTrapThree.guardGate();
 
     return 0;
 }
