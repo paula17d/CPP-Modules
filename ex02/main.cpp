@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 19:40:12 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/12/18 20:05:04 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 22:04:05 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int main( void )
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
     
     std::cout << a << std::endl;
-    std::cout << ++a << std::endl; // increment first printed
+    std::cout << ++a << std::endl; // increment first, then print
     std::cout << a << std::endl;
-    std::cout << a++ << std::endl; // old value first printed
+    std::cout << a++ << std::endl; // old value printed, then increment
     std::cout << a << std::endl; // incremented value printed
     
     std::cout << b << std::endl;

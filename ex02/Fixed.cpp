@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:58:49 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/23 18:08:52 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 22:08:28 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,8 +187,7 @@ Fixed Fixed::operator/(Fixed const &fixed)
 The 4 increment/decrement (pre-increment and post-increment, pre-decrement and
 post-decrement) operators, which will increase or decrease the fixed-point value by
 the smallest representable ϵ, such that 1 + ϵ > 1.
-*/
-/*
+
 Operator   Syntax  Who is left	    Who is right
 Prefix ++a	++a	   a (the object)	none
 Postfix a++	a++	   a (the object)	int dummy
@@ -197,7 +196,6 @@ Stream std::cout << a	std::cout << a	std::cout	a
 So in a++, a is technically “left” because it’s the object 
 calling the operator — the (int) is just a marker for postfix.
 
-/*
 pre-increment (++a)
 - increases the value of a by 1
 - then gives/returns the new number

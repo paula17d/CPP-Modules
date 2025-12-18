@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:58:49 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/19 17:24:01 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 21:50:02 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed(const Fixed &og)
     this->_fixedPointNum = og.getRawBits();
 }
 
-// a copy assignment operator overload
+// a copy assignment operator
 Fixed& Fixed::operator= (const Fixed &og)
 {
     std::cout << "Copy assignment operator called" << std::endl;

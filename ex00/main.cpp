@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:45:36 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/12/18 18:38:49 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 21:51:51 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main(void) 
 {
-    Fixed a();
-    Fixed b( a );
+    Fixed a;
+    Fixed b(a);
     Fixed c;
 
     c = b;
