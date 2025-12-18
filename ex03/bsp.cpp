@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 18:54:39 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/11/26 16:28:35 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 20:10:53 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ A1 ​= Area(P,B,C)
 A2 ​= Area(A,P,C)
 A3 ​= Area(A,B,P)
 */
+// calculates the area
 static float area(Point const a, Point const b, Point const c)
 {
     return ( (a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat()))
@@ -31,6 +32,7 @@ static float area(Point const a, Point const b, Point const c)
            + (c.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat())) ) / 2.0f;
 }
 
+// tells you whether or not the point is inside the triangle
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
     float A  = std::abs(area(a, b, c));

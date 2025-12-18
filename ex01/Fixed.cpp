@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:58:49 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/22 16:48:34 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 18:59:14 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ Fixed::Fixed(const Fixed &og)
 }
 
 /*
+personalized
 A constructor that takes a constant integer as a parameter.
 It converts it to the corresponding fixed-point value. The fractional bits value
 should be initialized to 8, like in exercise 00.
 -> bit shifting num left by _fractionalBits (8) is the same as multiplying it by 2 ^_fractionalBits
+
+normal number (ex. 2) is turned into bits w 8 0s added after.
+and then turned into integer again
 */
 Fixed::Fixed(int const num)
 {
@@ -39,11 +43,17 @@ Fixed::Fixed(int const num)
 }
 
 /*
+personalized
 A constructor that takes a constant floating-point number as a parameter.
 It converts it to the corresponding fixed-point value. The fractional bits value
 should be initialized to 8, like in exercise 00.
 -> bit shifting num left by _fractionalBits (8) is the same as multiplying it by 2 ^_fractionalBits
 -> round to nearest integer, so it fits _fixedPointNum
+
+here ex. 2.5
+bit number might after calculation have more than 8 bits after decimal
+-> therefore we use roundf to cut it to 8 in total
+and then turn into integer
 */
 Fixed::Fixed(float const num)
 {
@@ -102,6 +112,8 @@ int Fixed::toInt(void) const
 /*
 An overload of the insertion («) operator that inserts a floating-point representation
 of the fixed-point number into the output stream object passed as a parameter.
+-First input is left side. Second input is right side. 
+-Inbetween is <<
 */
 std::ostream& operator<<(std::ostream &out_stream, Fixed const &fixed)
 {

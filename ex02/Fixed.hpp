@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:53:31 by pdrettas          #+#    #+#             */
-/*   Updated: 2025/11/23 17:58:08 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/18 20:04:30 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ class Fixed
         Fixed operator++(int);
         Fixed operator--(int);
         
-        // overloaded functions
+        // overloaded functions (static bc no 'this' in use)
         static Fixed &min(Fixed &a, Fixed &b);
         static const Fixed &min(const Fixed &a, const Fixed &b);
         static Fixed &max(Fixed &a, Fixed &b);
