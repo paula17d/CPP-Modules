@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:37:46 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/19 19:49:42 by pdrettas         ###   ########.fr       */
+/*   Updated: 2025/12/19 23:12:51 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ DiamondTrap::DiamondTrap()
 // personalized constructor
 // : ClapTrap(name) (if wanting to use personalized constructor)
 // nothing if wanting to use default constructor
-DiamondTrap::DiamondTrap(std::string name) : _name(name), FragTrap(name), ScavTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name)
 {
+    this->_name = name;
     this->ClapTrap::setName(_name + "_clap_name");
     this->setHitPoints(FragTrap::_hitPoints);
     this->setEnergyPoints(ScavTrap::_energyPoints);
