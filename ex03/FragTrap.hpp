@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:47:44 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 15:24:58 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/16 18:46:11 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+/* Once it’s virtual in the intermediate classes (FragTrap & ScavTrap), 
+the most derived class (DiamondTrap) automatically knows 
+ClapTrap is virtual and should be constructed only once. */ 
+class FragTrap : virtual public ClapTrap
 {
-    private:
-
     public:
         FragTrap(); // default constructor
         FragTrap(std::string name); // personalized constructor
