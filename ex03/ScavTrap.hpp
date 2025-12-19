@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:06:02 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 18:46:07 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 22:59:24 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-/* Once it’s virtual in the intermediate classes (FragTrap & ScavTrap), 
-the most derived class (DiamondTrap) automatically knows 
-ClapTrap is virtual and should be constructed only once. */ 
 class ScavTrap : virtual public ClapTrap
 {
     public:

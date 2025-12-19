@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 14:41:42 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/14 18:21:55 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 22:23:03 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 // default constructor
 ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
 {
-    std::cout << "ClapTrap with Name: " << this->_name << "with default constuctor created" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << " with default constructor created" << std::endl;
 }
 
 // personalized constructor
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), 
     _energyPoints(10), _attackDamage(0)
 {
-    std::cout << "ClapTrap with Name: " << this->_name << "with personalized constuctor created" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << " with personalized constructor created" << std::endl;
 }
 
 // copy constructor
@@ -50,7 +50,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &og)
 // deconstructor
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap with Name: " << this->_name << "with deconstuctor destroyed" << std::endl;
+    std::cout << "ClapTrap with Name: " << this->_name << " with deconstructor destroyed" << std::endl;
 }
 
 // getters
@@ -97,14 +97,14 @@ void ClapTrap::setAttackDamage(int attackDamage)
 
 // When ClapTrap attacks, it causes its target to lose <attack damage> hit points.
 // Attacking and repairing each cost 1 energy point.
-// Of course, ClapTrap can’t do anything if it has no hit points or energy points left
+// Of course, ClapTrap can’t do anything if it has no hit points or energy points left.
 void ClapTrap::attack(const std::string& target)
 {
     if (this->_energyPoints > 0 && this->_hitPoints > 0)
     {
         this->_energyPoints--;
-        std::cout << "ClapTrap" << this->_name << "attacks" << target << "causing" 
-        << this->_attackDamage << "points of damage!" << std::endl;
+        std::cout << "ClapTrap " << this->_name << " attacks " << target << " causing " 
+        << this->_attackDamage << " points of damage!" << std::endl;
     }
     else
     {
@@ -115,7 +115,17 @@ void ClapTrap::attack(const std::string& target)
 // When ClapTrap attacks, it causes its target to lose <attack damage> hit points.
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    this->_hitPoints -= amount; 
+    if (this->_hitPoints > 0)
+    {
+        this->_hitPoints -= amount;
+        if (this->_hitPoints < 0)
+            this->_hitPoints = 0;
+        std::cout << "ClapTrap " << this->_name << " got attacked with " << amount << " damage points. New Total: " << this->_hitPoints << std::endl;
+    }
+    else
+    {
+        std::cout << "ClapTrap " << this->_name << " is already dead, and therefore cannot take damage." << std::endl;
+    }
 }
 
 // When ClapTrap repairs itself, it regains <amount> hit points
@@ -127,8 +137,8 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         this->_hitPoints += amount;
         this->_energyPoints--;
-        std::cout << "ClapTrap" << this->_name << "repairs itself regaining " 
-        << amount << "hit points! -> New Total: " << this->_hitPoints << std::endl;
+        std::cout << "ClapTrap " << this->_name << " repairs itself regaining " 
+        << amount << " hit points! -> New Total: " << this->_hitPoints << std::endl;
     }
     else
     {

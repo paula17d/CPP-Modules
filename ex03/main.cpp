@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:18:38 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 18:51:10 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 22:52:03 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ int main ()
     std::cout << "Energy points of DiamondTrapTwo = " << DiamondTrapTwo.getEnergyPoints() << std::endl;
     std::cout << "Attack damage of DiamondTrapTwo = " << DiamondTrapTwo.getAttackDamage() << std::endl;
    
-    // DiamondTrap DiamondTrapThree;
-    // DiamondTrapThree = DiamondTrapOne;
-    // std::cout << "Name of DiamondTrapThree = " << DiamondTrapThree.getName() << std::endl;
-    // std::cout << "Hit points of DiamondTrapThree = " << DiamondTrapThree.getHitPoints() << std::endl;
-    // std::cout << "Energy points of DiamondTrapThree = " << DiamondTrapThree.getEnergyPoints() << std::endl;
-    // DiamondTrapThree.whoAmI();
+    DiamondTrap DiamondTrapThree;
+    DiamondTrapThree = DiamondTrapOne;
+    std::cout << "Name of DiamondTrapThree = " << DiamondTrapThree.getName() << std::endl;
+    std::cout << "Hit points of DiamondTrapThree = " << DiamondTrapThree.getHitPoints() << std::endl;
+    std::cout << "Energy points of DiamondTrapThree = " << DiamondTrapThree.getEnergyPoints() << std::endl;
+    std::cout << "Attack damage of DiamondTrapTwo = " << DiamondTrapThree.getAttackDamage() << std::endl;
+    DiamondTrapThree.whoAmI();
+    DiamondTrapThree.guardGate();
+    DiamondTrapThree.highFivesGuys();
     
     return 0;
 }

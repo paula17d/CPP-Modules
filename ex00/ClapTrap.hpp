@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 14:41:40 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/14 18:22:25 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 21:45:00 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,10 @@
 class ClapTrap
 {
     private:
-        // Name, which is passed as a parameter to the constructor
         std::string _name;
-        // Hit points (10), representing the health of the ClapTrap
-        int _hitPoints;
-        // Energy points (10)
-        int _energyPoints;
-        // Attack damage (0)
-        int _attackDamage;
+        int _hitPoints; // (10)
+        int _energyPoints; // (10)
+        int _attackDamage; // (0)
 
     public:
         ClapTrap(); // default constructor
@@ -43,7 +39,7 @@ class ClapTrap
         void setHitPoints(int hitPoints);
         void setEnergyPoints(int energyPoints);
         void setAttackDamage(int attackDamage);
-        
+
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);

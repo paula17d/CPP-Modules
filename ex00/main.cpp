@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 14:41:39 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/14 18:38:57 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 22:57:13 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: write tests for evaluation (mandatory)
 
 #include "ClapTrap.hpp"
 
@@ -28,7 +26,5 @@ int main ()
     std::cout << "Energy points of clapTrapOne = " << clapTrapOne.getEnergyPoints() << std::endl;
     std::cout << "Energy points of clapTrapTwo = " << clapTrapTwo.getEnergyPoints() << std::endl;
     
-    
-
     return 0;
 }

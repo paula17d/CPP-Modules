@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:47:44 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 15:24:58 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 22:58:11 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 
 class FragTrap : public ClapTrap
 {
-    private:
-
     public:
         FragTrap(); // default constructor
         FragTrap(std::string name); // personalized constructor

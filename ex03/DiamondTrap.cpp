@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 14:37:46 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 18:54:23 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 19:49:42 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,19 @@ DiamondTrap::DiamondTrap(std::string name) : _name(name), FragTrap(name), ScavTr
     std::cout << "DiamondTrap with Name: " << this->_name << " with personalized constructor created" << std::endl;
 }
 
-// copy constructor // TODO: fix copy constructor with either Scav or Frag?
+// copy constructor
 DiamondTrap::DiamondTrap(const DiamondTrap &og) : ClapTrap(og)
 {
-   // alles richtig kopiert in mian (zweiter test) aber name aendern (im terminal kein output bei two name)
+    this->_name = og._name;
 }
 
-// assignment operator = // TODO: fix ft with either Scav or Frag?
+// assignment operator = 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &og)
 {
     if (this != &og)
     {
         ClapTrap::operator=(og);
+        this->_name = og._name;
     }
     return *this;
 }

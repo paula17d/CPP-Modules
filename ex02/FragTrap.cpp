@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:47:36 by pauladretta       #+#    #+#             */
-/*   Updated: 2025/12/16 13:47:37 by pauladretta      ###   ########.fr       */
+/*   Updated: 2025/12/19 19:16:33 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // default constructor
 FragTrap::FragTrap()
 {
-    std::cout << "FragTrap with Name: " << this->_name << " with default constuctor created" << std::endl;
+    std::cout << "FragTrap with Name: " << this->_name << " with default constructor created" << std::endl;
 }
 
 // personalized constructor
@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string name)
     this->setHitPoints(100);
     this->setEnergyPoints(100);
     this->setAttackDamage(30);
-    std::cout << "FragTrap with Name: " << this->_name << " with personalized constuctor created" << std::endl;
+    std::cout << "FragTrap with Name: " << this->_name << " with personalized constructor created" << std::endl;
 }
 
 // copy constructor
@@ -47,7 +47,7 @@ FragTrap &FragTrap::operator=(const FragTrap &og)
 // deconstructor
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap with Name: " << this->_name << " with deconstuctor destroyed" << std::endl;
+    std::cout << "FragTrap with Name: " << this->_name << " with deconstructor destroyed" << std::endl;
 }
 
 // displays a positive high-fives request on the standard output
