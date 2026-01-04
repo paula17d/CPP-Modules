@@ -6,13 +6,15 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:32:38 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:17:23 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:35:59 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -35,6 +37,19 @@ int main()
     // ...
     
     // add delete (bc of new) in this test subjedct
+    
+    // TODO: last task in subject: WrongCat & WrongAnimal
+    // Test 3:
+    const WrongAnimal* meta9 = new WrongAnimal();
+    const Animal* j9 = new Dog();
+    const WrongAnimal* i9 = new WrongCat();
+    
+    std::cout << j9->getType() << " " << std::endl;
+    std::cout << i9->getType() << " " << std::endl;
+    i9->makeSound(); //will output the cat sound!
+    j9->makeSound();
+    meta9->makeSound();
+    
     
     return 0;
 }

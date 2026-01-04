@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:26:21 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/01/04 20:29:22 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
 // default constructor
-Animal::Animal() : _type("None")
+WrongCat::WrongCat() : _type("WrongCat")
 {
     std::cout << GREEN << "Animal of type " << this->_type 
         << " created with default constructor" << RESET << std::endl;
 }
 
 // personalized constructor
-Animal::Animal(std::string type)
-{}
+WrongCat::WrongCat(std::string type) : _type(type)
+{
+    std::cout << GREEN << "Animal of type " << this->_type 
+        << " created with personalized constructor" << RESET << std::endl;
+}
 
 // copy constructor
-Animal::Animal(const Animal &og)
+WrongCat::WrongCat(const WrongCat &og)
 {
     this->_type = og._type;
 }
 
 // assignment operator
-Animal &Animal::operator=(const Animal &og)
+WrongCat &WrongCat::operator=(const WrongCat &og)
 {
     if (this != &og)
     {
@@ -40,26 +43,26 @@ Animal &Animal::operator=(const Animal &og)
     return *this;
 }
 
-// deconstructor
-Animal::~Animal()
+// destructor
+WrongCat::~WrongCat()
 {
     std::cout << RED << "Animal of type " << this->_type 
           << " destroyed with destructor" << RESET << std::endl;
 }
 
 // getters
-const std::string &Animal::getType() const
+const std::string &WrongCat::getType() const
 {
     return this->_type;
 }
 
 // setters
-void Animal::setType(std::string type)
+void WrongCat::setType(std::string type)
 {
     this->_type = type;
 }
 
-void Animal::makeSound() const
+void WrongCat::makeSound() const
 {
-    std::cout << "No sound" << std::endl;
+    std::cout << "Meowwww" << std::endl;
 }

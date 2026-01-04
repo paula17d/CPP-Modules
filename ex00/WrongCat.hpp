@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:29 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:32:44 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:37:22 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : virtual public Animal
+class WrongCat : public WrongAnimal
 {
     protected:
         std::string _type;
     
     public:
         // default constructor
-        Cat();
+        WrongCat();
         // personalized constructor
-        Cat(std::string type);
+        WrongCat(std::string type);
         // copy constructor
-        Cat(const Cat &og);
+        WrongCat(const WrongCat &og);
         // assignment operator
-        Cat &operator=(const Cat &og);
+        WrongCat &operator=(const WrongCat &og);
         // destructor
-        ~Cat();
+        ~WrongCat();
         // getters
         const std::string &getType() const;
         // setters

@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 19:19:29 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:32:44 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/01/04 20:41:02 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
-#include "Animal.hpp"
 
-class Cat : virtual public Animal
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
+
+/*
+function makeSound is not virtual like in the Animal class,
+because WrongCat should output the WrongAnimal sound.
+Meaning that the Animal makeSound function should not be overridden
+by the Cat makeSound function.
+*/
+
+class WrongAnimal
 {
     protected:
         std::string _type;
     
     public:
         // default constructor
-        Cat();
+        WrongAnimal();
         // personalized constructor
-        Cat(std::string type);
+        WrongAnimal(std::string type);
         // copy constructor
-        Cat(const Cat &og);
+        WrongAnimal(const WrongAnimal &og);
         // assignment operator
-        Cat &operator=(const Cat &og);
+        WrongAnimal &operator=(const WrongAnimal &og);
         // destructor
-        ~Cat();
+        ~WrongAnimal();
         // getters
         const std::string &getType() const;
         // setters
