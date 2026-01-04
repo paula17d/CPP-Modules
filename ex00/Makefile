@@ -6,13 +6,13 @@
 #    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/04 15:18:06 by pdrettas          #+#    #+#              #
-#    Updated: 2026/01/04 15:18:10 by pdrettas         ###   ########.fr        #
+#    Updated: 2026/01/04 19:02:54 by pdrettas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex03
+NAME = ex00
 
-SRC			=	./main.cpp ./ClapTrap.cpp ./ScavTrap.cpp ./FragTrap.cpp ./DiamondTrap.cpp
+SRC			=	./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp
 				
 OBJ			=	$(SRC:.cpp=.o)
 			
