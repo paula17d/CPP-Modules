@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:24:30 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 23:39:09 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,18 @@
 // default constructor
 Dog::Dog() : _type("Dog")
 {
+    _brain = new Brain();
+    
     std::cout << GREEN << "Animal of type " << this->_type 
           << " created with default constructor" << RESET << std::endl;
 }
 
-// personalized constructor
-Dog::Dog(std::string type) : _type(type)
-{
-    std::cout << GREEN << "Animal of type " << this->_type 
-        << " created with personalized constructor" << RESET << std::endl;
-}
-
 // copy constructor
+// create a new Brain by copying the contents (ex. array) of the Brain that og.brain points to
 Dog::Dog(const Dog &og)
 {
     this->_type = og._type;
+    this->_brain = new Brain(*og._brain);
 }
 
 // assignment operator
@@ -38,6 +35,7 @@ Dog &Dog::operator=(const Dog &og)
     if (this != &og)
     {
         this->_type = og._type;
+        this->_brain = new Brain(*og._brain);
     }
     
     return *this;
@@ -46,6 +44,7 @@ Dog &Dog::operator=(const Dog &og)
 // deconstructor
 Dog::~Dog()
 {
+    delete _brain;
     std::cout << RED << "Animal of type " << this->_type 
           << " destroyed with destructor" << RESET << std::endl;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 13:56:05 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 23:38:59 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,12 @@ Cat::Cat() : _type("Cat")
         << " created with default constructor" << RESET << std::endl;
 }
 
-// personalized constructor
-Cat::Cat(std::string type) : _type(type)
-{
-    std::cout << GREEN << "Animal of type " << this->_type 
-        << " created with personalized constructor" << RESET << std::endl;
-}
-
 // copy constructor
+// create a new Brain by copying the contents (ex. array) of the Brain that og.brain points to
 Cat::Cat(const Cat &og)
 {
     this->_type = og._type;
+    this->_brain = new Brain(*og._brain);
 }
 
 // assignment operator
@@ -40,6 +35,7 @@ Cat &Cat::operator=(const Cat &og)
     if (this != &og)
     {
         this->_type = og._type;
+        this->_brain = new Brain(*og._brain);
     }
     
     return *this;
@@ -48,6 +44,7 @@ Cat &Cat::operator=(const Cat &og)
 // destructor
 Cat::~Cat()
 {
+    delete _brain;
     std::cout << RED << "Animal of type " << this->_type 
           << " destroyed with destructor" << RESET << std::endl;
 }
