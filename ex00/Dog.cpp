@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:14:49 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:24:30 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void Dog::setType(std::string type)
 
 void Dog::makeSound() const
 {
-    std::cout << "Bark" << std::endl;
+    std::cout << "Dog sound (Bark)" << std::endl;
 }

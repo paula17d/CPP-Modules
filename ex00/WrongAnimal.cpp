@@ -6,14 +6,14 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:28:19 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:25:13 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 // default constructor
-WrongAnimal::WrongAnimal() : _type("None")
+WrongAnimal::WrongAnimal() : _type("Animal")
 {
     std::cout << GREEN << "WrongAnimal of type " << this->_type 
         << " created with default constructor" << RESET << std::endl;
@@ -61,5 +61,5 @@ void WrongAnimal::setType(std::string type)
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "No sound" << std::endl;
+    std::cout << "Animal sound (---)" << std::endl;
 }

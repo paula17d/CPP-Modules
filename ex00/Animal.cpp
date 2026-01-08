@@ -6,14 +6,14 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:26:21 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:25:07 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 // default constructor
-Animal::Animal() : _type("None")
+Animal::Animal() : _type("Animal")
 {
     std::cout << GREEN << "Animal of type " << this->_type 
         << " created with default constructor" << RESET << std::endl;
@@ -61,5 +61,5 @@ void Animal::setType(std::string type)
 
 void Animal::makeSound() const
 {
-    std::cout << "No sound" << std::endl;
+    std::cout << "Animal sound (---)" << std::endl;
 }

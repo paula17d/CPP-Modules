@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:22:56 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:26:17 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Animal
         // assignment operator
         Animal &operator=(const Animal &og);
         // destructor
-        ~Animal();
+        virtual ~Animal();
         // getters
         virtual const std::string &getType() const;
         // setters

@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:14:45 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:24:20 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,5 @@ void Cat::setType(std::string type)
 
 void Cat::makeSound() const
 {
-    std::cout << "Meowwww" << std::endl;
+    std::cout << "Cat sound (Meowwww)" << std::endl;
 }

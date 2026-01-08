@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:41:02 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:39:29 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ function makeSound is not virtual like in the Animal class,
 because WrongCat should output the WrongAnimal sound.
 Meaning that the Animal makeSound function should not be overridden
 by the Cat makeSound function.
+Virtual Destructor: if deleting a derived object (wrongCat) through base class pointer,
+base destructor must be virtual (even if no virtual functions in base class)
 */
 
 class WrongAnimal
@@ -41,7 +43,7 @@ class WrongAnimal
         // assignment operator
         WrongAnimal &operator=(const WrongAnimal &og);
         // destructor
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         // getters
         const std::string &getType() const;
         // setters

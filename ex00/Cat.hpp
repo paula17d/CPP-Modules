@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:29 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:32:44 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 10:32:14 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "Animal.hpp"
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
     protected:
         std::string _type;

@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:32:38 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:35:59 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 11:40:20 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@
 int main()
 {
     // Test 1: constructors & destructors, correct names (_type) of classes
-    // Animal animal;
-    // Cat cat;
-    // Dog dog;
+    Animal animal;
+    Cat cat;
+    Dog dog;
 
-    // Test 2: specific sounds of the dog and cat classes
-    // Test Subject
+    // Test 2 (TEST SUBJECT): polymorphism (specific sounds of the dog and cat classes)
+    /*
+        Function (getType & makeSound) are declared virtual in base class. 
+        Derived class's implementation is called based on the actual object type 
+        (even when accessed through a base class pointer)
+    */
     const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
@@ -34,22 +38,25 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    // ...
     
-    // add delete (bc of new) in this test subjedct
+    delete meta;
+    delete j;
+    delete i;
     
-    // TODO: last task in subject: WrongCat & WrongAnimal
-    // Test 3:
+    // Test 3: effects of using inheritance without virtual
     const WrongAnimal* meta9 = new WrongAnimal();
     const Animal* j9 = new Dog();
     const WrongAnimal* i9 = new WrongCat();
     
     std::cout << j9->getType() << " " << std::endl;
     std::cout << i9->getType() << " " << std::endl;
-    i9->makeSound(); //will output the cat sound!
+    i9->makeSound(); //will output the WrongCat sound!
     j9->makeSound();
     meta9->makeSound();
     
+    delete meta9;
+    delete j9;
+    delete i9;
     
     return 0;
 }
