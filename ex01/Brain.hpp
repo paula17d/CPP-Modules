@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 19:14:15 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 13:45:40 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/01/08 12:52:29 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/01/08 13:50:27 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <iostream>
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class Dog : public Animal
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
+
+class Brain
 {
-    protected:
-        std::string _type;
-        Brain *_brain;
+    private:
+        std::string _ideas[100];
     
     public:
         // default constructor
-        Dog();
-        // personalized constructor
-        Dog(std::string type);
+        Brain();
         // copy constructor
-        Dog(const Dog &og);
+        Brain(const Brain &og);
         // assignment operator
-        Dog &operator=(const Dog &og);
+        Brain &operator=(const Brain &og);
         // destructor
-        ~Dog();
-        // getters
-        const std::string &getType() const;
-        // setters
-        void setType(std::string type);
-        // member functions
-        void makeSound() const;
+        ~Brain();
 };
 
 #endif

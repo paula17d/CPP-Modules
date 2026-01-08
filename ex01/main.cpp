@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:32:38 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:43:19 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:01:25 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@
 
 int main()
 {
-
-
-
+    // Test 1 (TEST SUBJECT)
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
     
-    
+    delete j;//should not create a leak
+    delete i;
+    //...
+
     return 0;
 }

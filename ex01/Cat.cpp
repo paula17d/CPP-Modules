@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:24:20 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/08 13:56:05 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 // default constructor
 Cat::Cat() : _type("Cat")
 {
+    _brain = new Brain();
+    
     std::cout << GREEN << "Animal of type " << this->_type 
         << " created with default constructor" << RESET << std::endl;
 }
