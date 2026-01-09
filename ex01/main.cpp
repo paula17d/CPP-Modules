@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:32:38 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/09 00:24:39 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/09 21:36:06 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-int main() // TODO: check for leaks valgrind && deepen deep vs shallow copy
+int main()
 {
     // Test 1 (TEST SUBJECT)
     const Animal* j = new Dog();
