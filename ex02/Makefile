@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
+#    By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/04 15:18:06 by pdrettas          #+#    #+#              #
-#    Updated: 2026/01/09 21:35:09 by pdrettas         ###   ########.fr        #
+#    Updated: 2026/01/21 18:02:08 by pauladretta      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex02
 
-SRC			=	./main.cpp ./Animal.cpp ./Dog.cpp ./Cat.cpp ./Brain.cpp
+SRC			=	./main.cpp ./AAnimal.cpp ./Dog.cpp ./Cat.cpp ./Brain.cpp
 				
 OBJ			=	$(SRC:.cpp=.o)
 			

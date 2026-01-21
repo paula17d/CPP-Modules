@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 23:38:59 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/21 18:01:56 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Cat::Cat() : _type("Cat")
 {
     _brain = new Brain();
     
-    std::cout << GREEN << "Animal of type " << this->_type 
+    std::cout << GREEN << "AAnimal of type " << this->_type 
         << " created with default constructor" << RESET << std::endl;
 }
 
@@ -45,7 +45,7 @@ Cat &Cat::operator=(const Cat &og)
 Cat::~Cat()
 {
     delete _brain;
-    std::cout << RED << "Animal of type " << this->_type 
+    std::cout << RED << "AAnimal of type " << this->_type 
           << " destroyed with destructor" << RESET << std::endl;
 }
 

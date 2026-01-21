@@ -1,45 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 19:14:15 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/21 18:02:02 by pauladretta      ###   ########.fr       */
+/*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/01/21 17:58:45 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef AAnimal_HPP
+#define AAnimal_HPP
 
 #include <iostream>
-#include "AAnimal.hpp"
-#include "Brain.hpp"
 
-class Dog : public AAnimal
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
+
+/*
+abstract class: a class with at least one pure virtual 
+function becomes an abstract class. 
+*/
+
+class AAnimal
 {
     protected:
         std::string _type;
-        Brain *_brain;
     
     public:
         // default constructor
-        Dog();
+        AAnimal();
         // personalized constructor
-        Dog(std::string type);
+        AAnimal(std::string type);
         // copy constructor
-        Dog(const Dog &og);
+        AAnimal(const AAnimal &og);
         // assignment operator
-        Dog &operator=(const Dog &og);
+        AAnimal &operator=(const AAnimal &og);
         // destructor
-        ~Dog();
+        virtual ~AAnimal();
         // getters
-        const std::string &getType() const;
+        virtual const std::string &getType() const;
         // setters
-        void setType(std::string type);
+        virtual void setType(std::string type);
         // member functions
-        void makeSound() const;
+        virtual void makeSound() const = 0; // pure virtual
 };
 
 #endif

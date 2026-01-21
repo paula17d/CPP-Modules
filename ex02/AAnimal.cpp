@@ -1,67 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/21 18:02:01 by pauladretta      ###   ########.fr       */
+/*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/01/21 17:58:50 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "AAnimal.hpp"
 
 // default constructor
-Dog::Dog() : _type("Dog")
+AAnimal::AAnimal() : _type("AAnimal")
 {
-    _brain = new Brain();
-    
     std::cout << GREEN << "AAnimal of type " << this->_type 
-          << " created with default constructor" << RESET << std::endl;
+        << " created with default constructor" << RESET << std::endl;
 }
 
+// personalized constructor
+AAnimal::AAnimal(std::string type)
+{}
+
 // copy constructor
-// create a new Brain by copying the contents (ex. array) of the Brain that og.brain points to
-Dog::Dog(const Dog &og)
+AAnimal::AAnimal(const AAnimal &og)
 {
     this->_type = og._type;
-    this->_brain = new Brain(*og._brain);
 }
 
 // assignment operator
-Dog &Dog::operator=(const Dog &og)
+AAnimal &AAnimal::operator=(const AAnimal &og)
 {
     if (this != &og)
     {
         this->_type = og._type;
-        this->_brain = new Brain(*og._brain);
     }
     
     return *this;
 }
 
 // deconstructor
-Dog::~Dog()
+AAnimal::~AAnimal()
 {
-    delete _brain;
     std::cout << RED << "AAnimal of type " << this->_type 
           << " destroyed with destructor" << RESET << std::endl;
 }
 
 // getters
-const std::string &Dog::getType() const
+const std::string &AAnimal::getType() const
 {
     return this->_type;
 }
 
 // setters
-void Dog::setType(std::string type)
+void AAnimal::setType(std::string type)
 {
     this->_type = type;
 }
 
-void Dog::makeSound() const
+void AAnimal::makeSound() const
 {
-    std::cout << "Dog sound (Bark)" << std::endl;
+    std::cout << "AAnimal sound (---)" << std::endl;
 }
