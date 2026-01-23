@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:29 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/22 18:25:34 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/23 18:35:35 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Cat : public Animal
 {
-    protected:
+    private:
         Brain *_brain;
     
     public:

@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:15 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/22 18:34:37 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/23 18:35:48 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 class Dog : public AAnimal
 {
-    protected:
+    private:
         Brain *_brain;
     
     public:

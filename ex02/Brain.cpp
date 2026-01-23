@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:52:27 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/22 18:32:07 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/23 18:39:38 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Brain::Brain(const Brain &og)
     {
         this->_ideas[i] = og._ideas[i];
     }
+    std::cout << GREEN << "[BRAIN] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
@@ -37,12 +38,12 @@ Brain &Brain::operator=(const Brain &og)
             this->_ideas[i] = og._ideas[i];
         }
     }
-    
+    std::cout << GREEN << "[BRAIN] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
 // deconstructor
 Brain::~Brain()
 {
-    std::cout << RED << "[BRAIN] destroyed with destructor" << RESET << std::endl;
+    std::cout << GREEN << "[BRAIN] destroyed with destructor" << RESET << std::endl;
 }
