@@ -3,66 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:19:26 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/04 20:29:22 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:41:51 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
 // default constructor
-WrongCat::WrongCat() : _type("WrongCat")
+WrongCat::WrongCat() : WrongAnimal()
 {
-    std::cout << GREEN << "Animal of type " << this->_type 
-        << " created with default constructor" << RESET << std::endl;
-}
-
-// personalized constructor
-WrongCat::WrongCat(std::string type) : _type(type)
-{
-    std::cout << GREEN << "Animal of type " << this->_type 
-        << " created with personalized constructor" << RESET << std::endl;
+    _type = "WrongCat";
+    std::cout << GREEN << "[WrongCat] created with default constructor" << RESET << std::endl;
 }
 
 // copy constructor
-WrongCat::WrongCat(const WrongCat &og)
+WrongCat::WrongCat(const WrongCat &og) : WrongAnimal(og)
 {
-    this->_type = og._type;
+    // this->_type = og._type;
+    std::cout << GREEN << "[WrongCat] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
-WrongCat &WrongCat::operator=(const WrongCat &og)
+WrongCat &WrongCat::operator=(const WrongCat &og) 
 {
     if (this != &og)
     {
         this->_type = og._type;
     }
-    
+    std::cout << GREEN << "[WrongCat] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
 // destructor
 WrongCat::~WrongCat()
 {
-    std::cout << RED << "Animal of type " << this->_type 
-          << " destroyed with destructor" << RESET << std::endl;
-}
-
-// getters
-const std::string &WrongCat::getType() const
-{
-    return this->_type;
-}
-
-// setters
-void WrongCat::setType(std::string type)
-{
-    this->_type = type;
+    std::cout << RED << "[WrongCat] destroyed with destructor" << RESET << std::endl;
 }
 
 void WrongCat::makeSound() const
 {
-    std::cout << "Meowwww" << std::endl;
+    std::cout << "WrongCat sound (Meowwww)" << std::endl;
 }

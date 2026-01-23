@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/20 13:29:04 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:44:25 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ class WrongAnimal
         ~WrongAnimal();
         // getters
         const std::string &getType() const;
-        // setters
-        void setType(std::string type);
         // member functions
         void makeSound() const;
 };

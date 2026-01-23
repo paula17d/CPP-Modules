@@ -3,33 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:24:30 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:22:54 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 // default constructor
-Dog::Dog() : _type("Dog")
+Dog::Dog() : Animal()
 {
-    std::cout << GREEN << "Animal of type " << this->_type 
-          << " created with default constructor" << RESET << std::endl;
-}
-
-// personalized constructor
-Dog::Dog(std::string type) : _type(type)
-{
-    std::cout << GREEN << "Animal of type " << this->_type 
-        << " created with personalized constructor" << RESET << std::endl;
+    _type = "Dog";
+    std::cout << GREEN << "[DOG] created with default constructor" << RESET << std::endl;
 }
 
 // copy constructor
-Dog::Dog(const Dog &og)
+Dog::Dog(const Dog &og) : Animal(og)
 {
-    this->_type = og._type;
+    std::cout << GREEN << "[DOG] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
@@ -39,27 +32,14 @@ Dog &Dog::operator=(const Dog &og)
     {
         this->_type = og._type;
     }
-    
+    std::cout << GREEN << "[DOG] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
 // deconstructor
 Dog::~Dog()
 {
-    std::cout << RED << "Animal of type " << this->_type 
-          << " destroyed with destructor" << RESET << std::endl;
-}
-
-// getters
-const std::string &Dog::getType() const
-{
-    return this->_type;
-}
-
-// setters
-void Dog::setType(std::string type)
-{
-    this->_type = type;
+    std::cout << RED << "[DOG] destroyed with destructor" << RESET << std::endl;
 }
 
 void Dog::makeSound() const

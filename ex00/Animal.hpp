@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:12 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:26:17 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:36:52 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ class Animal
         // destructor
         virtual ~Animal();
         // getters
-        virtual const std::string &getType() const;
-        // setters
-        virtual void setType(std::string type);
+        const std::string &getType() const;
         // member functions
         virtual void makeSound() const;
 };

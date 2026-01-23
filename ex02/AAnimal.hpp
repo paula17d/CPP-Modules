@@ -41,9 +41,7 @@ class AAnimal
         // destructor
         virtual ~AAnimal();
         // getters
-        virtual const std::string &getType() const;
-        // setters
-        virtual void setType(std::string type);
+        const std::string &getType() const;
         // member functions
         virtual void makeSound() const = 0; // pure virtual
 };

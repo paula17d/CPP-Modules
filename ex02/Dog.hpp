@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:15 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/21 18:02:02 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/22 18:34:37 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,17 @@
 class Dog : public AAnimal
 {
     protected:
-        std::string _type;
         Brain *_brain;
     
     public:
         // default constructor
         Dog();
-        // personalized constructor
-        Dog(std::string type);
         // copy constructor
         Dog(const Dog &og);
         // assignment operator
         Dog &operator=(const Dog &og);
         // destructor
         ~Dog();
-        // getters
-        const std::string &getType() const;
-        // setters
-        void setType(std::string type);
         // member functions
         void makeSound() const;
 };

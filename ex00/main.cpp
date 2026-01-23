@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 15:32:38 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/20 12:53:53 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:39:39 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@
 
 int main()
 {
+    // Cat cat;
+    // Cat cat2(cat);
+    // // cat2.setType("mami");
+    
+    // std::cout << "type of cat2 = " << cat2.getType() << std::endl;
     // Test 1: constructors & destructors, correct names (_type) of classes
-    Animal animal;
-    Cat cat;
-    Dog dog;
+    // Animal animal;
+    // Cat cat;
+    // Dog dog;
 
     // Test 2 (TEST SUBJECT): polymorphism (specific sounds of the dog and cat classes)
     /*
@@ -29,19 +34,19 @@ int main()
         Derived class's implementation is called based on the actual object type 
         (even when accessed through a base class pointer)
     */
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+    // const Animal* meta = new Animal();
+    // const Animal* j = new Dog();
+    // const Animal* i = new Cat();
     
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+    // std::cout << j->getType() << " " << std::endl;
+    // std::cout << i->getType() << " " << std::endl;
+    // i->makeSound(); //will output the cat sound!
+    // j->makeSound();
+    // meta->makeSound();
     
-    delete meta;
-    delete j;
-    delete i;
+    // delete meta;
+    // delete j;
+    // delete i;
     
     // Test 3: effects of using inheritance without virtual
     const WrongAnimal* meta9 = new WrongAnimal();

@@ -6,27 +6,26 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/21 18:02:01 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/22 18:31:24 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
 // default constructor
-Dog::Dog() : _type("Dog")
+Dog::Dog() : AAnimal()
 {
     _brain = new Brain();
-    
-    std::cout << GREEN << "AAnimal of type " << this->_type 
-          << " created with default constructor" << RESET << std::endl;
+    _type = "Dog";
+    std::cout << GREEN << "[DOG] created with default constructor" << RESET << std::endl;
 }
 
 // copy constructor
 // create a new Brain by copying the contents (ex. array) of the Brain that og.brain points to
-Dog::Dog(const Dog &og)
+Dog::Dog(const Dog &og) : AAnimal(og)
 {
-    this->_type = og._type;
     this->_brain = new Brain(*og._brain);
+    std::cout << GREEN << "[DOG] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
@@ -37,7 +36,7 @@ Dog &Dog::operator=(const Dog &og)
         this->_type = og._type;
         this->_brain = new Brain(*og._brain);
     }
-    
+    std::cout << GREEN << "[DOG] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
@@ -45,20 +44,7 @@ Dog &Dog::operator=(const Dog &og)
 Dog::~Dog()
 {
     delete _brain;
-    std::cout << RED << "AAnimal of type " << this->_type 
-          << " destroyed with destructor" << RESET << std::endl;
-}
-
-// getters
-const std::string &Dog::getType() const
-{
-    return this->_type;
-}
-
-// setters
-void Dog::setType(std::string type)
-{
-    this->_type = type;
+    std::cout << RED << "[DOG] destroyed with destructor" << RESET << std::endl;
 }
 
 void Dog::makeSound() const

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:52:27 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 13:50:20 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 18:32:07 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // default constructor
 Brain::Brain()
 {
-    std::cout << GREEN << "Brain created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "[BRAIN] created with default constructor" << RESET << std::endl;
 }
 
 // copy constructor
@@ -44,5 +44,5 @@ Brain &Brain::operator=(const Brain &og)
 // deconstructor
 Brain::~Brain()
 {
-    std::cout << RED << "Brain destroyed with destructor" << RESET << std::endl;
+    std::cout << RED << "[BRAIN] destroyed with destructor" << RESET << std::endl;
 }

@@ -15,18 +15,20 @@
 // default constructor
 AAnimal::AAnimal() : _type("AAnimal")
 {
-    std::cout << GREEN << "AAnimal of type " << this->_type 
-        << " created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "[AANIMAL] created with default constructor" << RESET << std::endl;
 }
 
 // personalized constructor
-AAnimal::AAnimal(std::string type)
-{}
+AAnimal::AAnimal(std::string type) : _type(type)
+{
+    std::cout << GREEN << "[AANIMAL] created with personalized constructor" << RESET << std::endl;
+}
 
 // copy constructor
 AAnimal::AAnimal(const AAnimal &og)
 {
     this->_type = og._type;
+    std::cout << GREEN << "[AANIMAL] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
@@ -36,15 +38,14 @@ AAnimal &AAnimal::operator=(const AAnimal &og)
     {
         this->_type = og._type;
     }
-    
+    std::cout << GREEN << "[AANIMAL] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
 // deconstructor
 AAnimal::~AAnimal()
 {
-    std::cout << RED << "AAnimal of type " << this->_type 
-          << " destroyed with destructor" << RESET << std::endl;
+    std::cout << RED << "[AANIMAL] destroyed with destructor" << RESET << std::endl;
 }
 
 // getters
@@ -53,13 +54,7 @@ const std::string &AAnimal::getType() const
     return this->_type;
 }
 
-// setters
-void AAnimal::setType(std::string type)
-{
-    this->_type = type;
-}
-
 void AAnimal::makeSound() const
 {
-    std::cout << "AAnimal sound (---)" << std::endl;
+    std::cout << "Random AAnimal sound (---)" << std::endl;
 }

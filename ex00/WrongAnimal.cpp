@@ -3,30 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/08 11:25:13 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/01/22 17:42:47 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 // default constructor
-WrongAnimal::WrongAnimal() : _type("Animal")
+WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
-    std::cout << GREEN << "WrongAnimal of type " << this->_type 
-        << " created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "[WrongAnimal] created with default constructor" << RESET << std::endl;
 }
 
 // personalized constructor
-WrongAnimal::WrongAnimal(std::string type)
-{}
+WrongAnimal::WrongAnimal(std::string type) : _type(type)
+{
+    std::cout << GREEN << "[WrongAnimal] created with personalized constructor" << RESET << std::endl;
+}
 
 // copy constructor
 WrongAnimal::WrongAnimal(const WrongAnimal &og)
 {
     this->_type = og._type;
+    std::cout << GREEN << "[WrongAnimal] created with copy constructor" << RESET << std::endl;
 }
 
 // assignment operator
@@ -36,15 +38,14 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &og)
     {
         this->_type = og._type;
     }
-    
+    std::cout << GREEN << "[WrongAnimal] created with copy assignment operator" << RESET << std::endl;
     return *this;
 }
 
 // deconstructor
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << RED << "WrongAnimal of type " << this->_type 
-          << " destroyed with destructor" << RESET << std::endl;
+    std::cout << RED << "[WrongAnimal] destroyed with destructor" << RESET << std::endl;
 }
 
 // getters
@@ -53,13 +54,7 @@ const std::string &WrongAnimal::getType() const
     return this->_type;
 }
 
-// setters
-void WrongAnimal::setType(std::string type)
-{
-    this->_type = type;
-}
-
 void WrongAnimal::makeSound() const
 {
-    std::cout << "Animal sound (---)" << std::endl;
+    std::cout << "Random WrongAnimal sound (---)" << std::endl;
 }
