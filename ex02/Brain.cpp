@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/08 12:52:27 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/23 18:39:38 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/24 18:00:09 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ Brain &Brain::operator=(const Brain &og)
 // deconstructor
 Brain::~Brain()
 {
-    std::cout << GREEN << "[BRAIN] destroyed with destructor" << RESET << std::endl;
+    std::cout << RED << "[BRAIN] destroyed with destructor" << RESET << std::endl;
 }

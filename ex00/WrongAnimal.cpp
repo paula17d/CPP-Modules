@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 18:57:19 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/22 17:42:47 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/24 17:55:05 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &og)
     return *this;
 }
 
-// deconstructor
+// destructor
 WrongAnimal::~WrongAnimal()
 {
     std::cout << RED << "[WrongAnimal] destroyed with destructor" << RESET << std::endl;

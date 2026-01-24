@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:14:17 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/01/22 17:22:54 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/01/24 17:54:46 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog &Dog::operator=(const Dog &og)
     return *this;
 }
 
-// deconstructor
+// destructor
 Dog::~Dog()
 {
     std::cout << RED << "[DOG] destroyed with destructor" << RESET << std::endl;
