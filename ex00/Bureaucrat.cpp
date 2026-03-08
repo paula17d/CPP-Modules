@@ -19,38 +19,18 @@ Bureaucrat::Bureaucrat() : _grade(0)
 // personalized constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    // try
-    // {
-    //     if (!(grade >= 1 && grade <= 150))
-    //         throw grade;
-    // }
-    // catch (int invalidGrade)
-    // {
-    //     if (invalidGrade < 1)
-    //         GradeTooHighException();
-    //     if (invalidGrade > 150)
-    //         GradeTooLowException();
-    //     std::cerr << RED << "A grade may only range from 1 to 150. You entered " \
-    //         << invalidGrade << "." << RESET << std::endl;
-    // }    
-
-    // TODO: implement with exception class
     try
     {
         // do some stuff with bureaucrats // contains code that might fail
+        if (grade < 1)
+            throw GradeTooHighException();
+        if (grade > 150)
+            throw GradeTooLowException();
     }
     catch (std::exception &e) // catch any exception derived from std::exception
     {
-        // handle exception        
-    }
-
-
-
-
-    try 
-    {
-        if (!(grade >= 1 && grade <= 150))
-            throw 
+        // handle exception
+        std::cerr << RED << e.what() << RESET << std::endl;        
     }
 }
 
@@ -75,14 +55,13 @@ int Bureaucrat::getGrade()
     return this->_grade;
 }
 
-void Bureaucrat::GradeTooHighException()
+// exceptions
+const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
-    // std::cerr << RED << "Error: Grade is too high." << RESET << std::endl;
+    return "Error: Grade is too high. Grades range from 1 to 150.";
 }
 
-void Bureaucrat::GradeTooLowException()
+const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
-    // std::cerr << RED << "Error: Grade is too low." << RESET << std::endl;
+    return "Error: Grade is too low. Grades range from 1 to 150.";
 }
-
-

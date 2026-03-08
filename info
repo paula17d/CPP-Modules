@@ -68,3 +68,11 @@ virtual const char* what() const noexcept;
 - returns a c-style string (const char*)
 - string is the error message describing the exception
 - noexcept just means it guarantees it wont throw another exception
+
+
+
+exception classes
+- std::excpetion class is the base class for all the other exception classes
+- what() function returns the string describing the type of exception
+
+nested classes (a class within a class)

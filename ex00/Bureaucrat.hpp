@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+#include <stdexcept>
 
 #define RED "\033[31m"
 #define RESET "\033[0m"
@@ -34,18 +35,20 @@ class Bureaucrat
         // getters
         const std::string getName();
         int getGrade();
-        // other functions
-        void GradeTooHighException();
-        void GradeTooLowException();
+        // exceptions (a class to represent an error)
+        class GradeTooHighException : public std::exception 
+        {
+            public:
+                const char* what() const noexcept;
+        };
+        class GradeTooLowException : public std::exception 
+        {
+            public:
+                const char* what() const noexcept;
+        };
+
         // FT: increment grade
         // FT: decrement grade
-};
-
-// a class to represent an error
-class Exception : public std::exception // needs to inherit from std::exception for common interface
-{
-    public:
-        const char* what() const noexcept; // standard way to read a message
 };
 
 #endif
