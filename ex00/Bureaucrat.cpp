@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/04 17:49:30 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/05 21:26:28 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,39 @@ Bureaucrat::Bureaucrat() : _grade(0)
 // personalized constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    // TODO (1): add here that grade can only be between 1-150 (exceptions)
-    // TODO: fix this entire function bc wrong / learn about exceptions / check subjects
+    // try
+    // {
+    //     if (!(grade >= 1 && grade <= 150))
+    //         throw grade;
+    // }
+    // catch (int invalidGrade)
+    // {
+    //     if (invalidGrade < 1)
+    //         GradeTooHighException();
+    //     if (invalidGrade > 150)
+    //         GradeTooLowException();
+    //     std::cerr << RED << "A grade may only range from 1 to 150. You entered " \
+    //         << invalidGrade << "." << RESET << std::endl;
+    // }    
+
+    // TODO: implement with exception class
     try
     {
-        if (!(grade >= 1 && grade <= 150))
-            throw grade;
+        // do some stuff with bureaucrats // contains code that might fail
     }
-    catch (int invalidGrade)
+    catch (std::exception &e) // catch any exception derived from std::exception
     {
-        if ()
-        
-        std::cerr << "Grade " << std::endl;
+        // handle exception        
     }
-    
+
+
+
+
+    try 
+    {
+        if (!(grade >= 1 && grade <= 150))
+            throw 
+    }
 }
 
 // destructor
@@ -58,10 +77,12 @@ int Bureaucrat::getGrade()
 
 void Bureaucrat::GradeTooHighException()
 {
-    
+    // std::cerr << RED << "Error: Grade is too high." << RESET << std::endl;
 }
 
 void Bureaucrat::GradeTooLowException()
 {
-    
+    // std::cerr << RED << "Error: Grade is too low." << RESET << std::endl;
 }
+
+
