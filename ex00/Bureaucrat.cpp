@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/05 21:26:28 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/08 22:21:57 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,23 @@ Bureaucrat::Bureaucrat() : _grade(0)
 // personalized constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    try
-    {
+    // try
+    // {
         // do some stuff with bureaucrats // contains code that might fail
         if (grade < 1)
             throw GradeTooHighException();
         if (grade > 150)
             throw GradeTooLowException();
-    }
-    catch (std::exception &e) // catch any exception derived from std::exception
-    {
-        // handle exception
-        std::cerr << RED << e.what() << RESET << std::endl;        
-    }
+        std::cout << "try laift noch " << std::endl;
+    // }
+    // catch (std::exception &e) // catch any exception derived from std::exception
+    // {
+    //     // handle exception
+    //     std::cerr << RED << e.what() << RESET << std::endl;        
+    // }
+    // TODO: move name and grade initializing here (not in declaraiont)
+    std::cout << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << std::endl;
 }
 
 // destructor
