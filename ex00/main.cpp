@@ -12,34 +12,32 @@
 
 #include "Bureaucrat.hpp"
 
-// int main ()
-// {
-//     // Test: instantiate a Bureaucrat
-//     Bureaucrat("User X", 73);
-    
-//     // Error Test: instantiate a Bureaucrat with an invalid grade
-//     Bureaucrat("User Y", 248);
-
-
-//     return 0;
-// }
-
-// practice
 int main ()
 {
     try 
     {
-        // Test: instantiate a Bureaucrat
-        Bureaucrat("User X", 73);
-        
-        // Error Test: instantiate a Bureaucrat with an invalid grade
-        Bureaucrat("User Y", 248);
-    }
-    catch (std::exception &paula)
-    {
-        std::cerr << RED << paula.what() << RESET << std::endl; 
-    }
+        /* do some stuff with bureaucrats */
+        // Test: instaniating a bureaucrat
+        Bureaucrat x("User X", 3);
 
+        // Error Test: instaniating a bureaucrat (grade out of range)
+        // Bureaucrat y("User Y", 528);
+
+        // Test: incrementing and decrementing a grade
+        x.incrementGrade(1);
+        x.decrementGrade(22);
+
+        // Error Test: incrementing grade (grade out of range)
+        // x.incrementGrade(1000);
+
+        // Test: overload of the insertion (<<) operator to "<name>, bureaucrat grade <grade>"
+        std::cout << x << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        /* handle exception */
+        std::cerr << ORANGE << e.what() << RESET << std::endl;
+    }
 
     return 0;
 }

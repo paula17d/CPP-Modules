@@ -19,28 +19,21 @@ Bureaucrat::Bureaucrat() : _grade(0)
 // personalized constructor
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
-    // try
-    // {
-        // do some stuff with bureaucrats // contains code that might fail
-        if (grade < 1)
-            throw GradeTooHighException();
-        if (grade > 150)
-            throw GradeTooLowException();
-        std::cout << "try laift noch " << std::endl;
-    // }
-    // catch (std::exception &e) // catch any exception derived from std::exception
-    // {
-    //     // handle exception
-    //     std::cerr << RED << e.what() << RESET << std::endl;        
-    // }
-    // TODO: move name and grade initializing here (not in declaraiont)
-    std::cout << "Bureaucrat created with name " << this->_name << \
-    " and grade " << this->_grade << std::endl;
+    if (grade < 1)
+        throw GradeTooHighException();
+    if (grade > 150)
+        throw GradeTooLowException();
+
+    std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << RESET << std::endl;
 }
 
 // destructor
 Bureaucrat::~Bureaucrat()
-{}
+{
+    std::cout << RED << "Bureaucrat destroyed with name " << this->_name << \
+    " and grade " << this->_grade << RESET << std::endl;
+}
 
 // setters
 void Bureaucrat::setGrade(int newGrade)
@@ -68,4 +61,35 @@ const char* Bureaucrat::GradeTooHighException::what() const noexcept
 const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
     return "Error: Grade is too low. Grades range from 1 to 150.";
+}
+
+// increment and decrement grade
+void Bureaucrat::incrementGrade(int amount)
+{
+    this->_grade -= amount;
+
+    if (this->_grade < 1)
+        throw GradeTooHighException();
+
+    std::cout << BLUE << "Grade has been incremented by " << amount \
+    << ". New grade: " << this->_grade << RESET << std::endl;
+}
+
+void Bureaucrat::decrementGrade(int amount)
+{
+    this->_grade += amount;
+
+    if (this->_grade > 150)
+        throw GradeTooLowException();
+
+    std::cout << BLUE << "Grade has been decremented by " << amount \
+    << ". New grade: " << this->_grade << RESET << std::endl;
+}
+
+// overload operator
+std::ostream& operator<<(std::ostream& out, Bureaucrat &user)
+{
+    out << LIGHT_GREEN << user.getName() << ", bureaucrat grade " \
+    << user.getGrade() << "." << RESET;
+    return out;
 }

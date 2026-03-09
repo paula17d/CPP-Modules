@@ -18,6 +18,10 @@
 #include <stdexcept>
 
 #define RED "\033[31m"
+#define GREEN "\033[32m"
+#define ORANGE "\033[38;5;208m"
+#define BLUE "\033[34m"
+#define LIGHT_GREEN "\033[38;5;120m"
 #define RESET "\033[0m"
 
 class Bureaucrat
@@ -27,9 +31,12 @@ class Bureaucrat
         int _grade;  // a grade that ranges from 1 (highest possible grade) to 150 (lowest possible grade)
         
     public:
-        Bureaucrat(); // constructor
-        Bureaucrat(std::string name, int grade); // personalized constructor
-        ~Bureaucrat(); // destructor
+        // constructor
+        Bureaucrat(); 
+        // personalized constructor
+        Bureaucrat(std::string name, int grade);
+        // destructor
+        ~Bureaucrat(); 
         // setters
         void setGrade(int newGrade);
         // getters
@@ -46,9 +53,12 @@ class Bureaucrat
             public:
                 const char* what() const noexcept;
         };
-
-        // FT: increment grade
-        // FT: decrement grade
-};
+        // other functions
+        void incrementGrade(int amount);
+        void decrementGrade(int amount);
+    };
+    
+// overload operator
+std::ostream& operator<<(std::ostream& out, Bureaucrat &user);
 
 #endif
