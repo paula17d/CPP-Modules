@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/08 22:21:57 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/10 20:15:36 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // constructor
 Bureaucrat::Bureaucrat() : _grade(0)
@@ -84,6 +85,12 @@ void Bureaucrat::decrementGrade(int amount)
 
     std::cout << BLUE << "Grade has been decremented by " << amount \
     << ". New grade: " << this->_grade << RESET << std::endl;
+}
+
+// calls the beSigned ft to attempt to sign the form (prints something wether or not form is signed successfully)
+void Bureaucrat::signForm(Form &form) // TODO: finish this function (last big paragraph in subject)
+{
+    form.beSigned();
 }
 
 // overload operator

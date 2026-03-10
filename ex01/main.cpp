@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:50:48 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/03/10 20:15:49 by pdrettas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
@@ -6,14 +17,29 @@ int main ()
 {
     try
     {
-        Form z("User Z", 0, 10, 223);
+        // Test: creating a form (change grade outside of 1-150 for error)
+        // Form z("User Z", true, 10, 1);
+        
+        // Test: printing a form with overloading operator
+        // std::cout << z << std::endl;
+
+        // Test: change form's status to signed if bureaucrat's grade is high enough (greater or equal to required one)
+        // Bureaucrat paul("Paul", 9);
+        // std::cout << paul << std::endl; // TODO: can this go automatically to this instead of having to type new name & age??
+        // Form a("User Z", false, 10, 1);
+        // a.beSigned(paul);
+
+        // Test: change form's status to signed if bureaucrat's grade is high enough (greater or equal to required one)
+        Bureaucrat marie("Marie", 11);
+        // TODO: finish signForm ft in Bureacraut.cpp
+        
     }
     catch (std::exception &e)
     {
+        // Error Test: catching the thrown exception if form has too low/high of a grade
         std::cerr << ORANGE << e.what() << RESET << std::endl;
     }
 
+    
     return 0;
 }
-
-// TODO: start second page of subject ex01

@@ -1,9 +1,20 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/10 18:50:35 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/03/10 19:01:49 by pdrettas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -31,7 +42,8 @@ class Form
         {
             const char* what() const noexcept;
         };
-
+        
+        void beSigned(Bureaucrat &b);
 };
 
 std::ostream& operator<<(std::ostream &out, Form &form);
