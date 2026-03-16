@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:35 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/10 19:01:49 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/16 18:00:20 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+// #include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -26,7 +27,7 @@ class Form
 
     public:
         Form();
-        Form(const std::string name, bool isSigned, const int gradeToSign, \
+        Form(const std::string name, const int gradeToSign, \
             const int gradeToExecute);
         ~Form();
         std::string getName();

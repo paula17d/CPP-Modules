@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/10 19:47:11 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/16 18:17:15 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ Form::Form() : _name(""), _isSigned(false), _gradeToSign(0), _gradeToExecute(0)
 {}
 
 // TODO: fix later when knowing what to keep and what not bc of isSigned
-Form::Form(const std::string name, bool isSigned, const int gradeToSign, const int gradeToExecute) \
-        : _name(name), _isSigned(isSigned), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute) \
+        : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     if (!(gradeToSign >= 1 && gradeToExecute >= 1))
         throw GradeTooHighException();
@@ -80,11 +80,6 @@ void Form::beSigned(Bureaucrat &b)
     // " Grade needed to sign: " << this->_gradeToSign << ". Bureaucrat's grade: " << \
     // b.getGrade() << std::endl;
 }
-
-
-
-
-
 
 std::ostream& operator<<(std::ostream &out, Form &form)
 {

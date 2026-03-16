@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/10 20:15:36 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/16 18:05:28 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,21 @@ void Bureaucrat::decrementGrade(int amount)
 // calls the beSigned ft to attempt to sign the form (prints something wether or not form is signed successfully)
 void Bureaucrat::signForm(Form &form) // TODO: finish this function (last big paragraph in subject)
 {
-    form.beSigned();
+    //isSigned is true?
+    // <bureaucrat> signed <form>
+    try
+    {
+        form.beSigned(*this);
+    
+        std::cout << "Bureaucrat " << this->_name << " signed " << \
+        form.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        // <bureaucrat> couldn’t sign <form> because <reason>
+        std::cerr << "Bureaucrat " << this->_name << " couldn't sign " << \
+        form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 // overload operator

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/10 20:10:57 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/16 17:59:45 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 #include <stdexcept>
+#include "Form.hpp"
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
