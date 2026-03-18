@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 18:35:05 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/16 20:32:16 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class Bureaucrat
         void setGrade(int newGrade);
         // getters
         const std::string getName();
-        int getGrade();
+        int getGrade() const;
         // exceptions (a class to represent an error)
         class GradeTooHighException : public std::exception 
         {

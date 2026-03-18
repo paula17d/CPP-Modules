@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/16 18:31:59 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/18 16:55:42 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ std::string AForm::getName()
     return this->_name;
 }
 
-bool AForm::getIsSigned()
+bool AForm::getIsSigned() const
 {
     return this->_isSigned;
 }
@@ -48,7 +48,7 @@ const int AForm::getGradeToSign()
     return this->_gradeToSign;
 }
 
-const int AForm::getGradeToExecute()
+const int AForm::getGradeToExecute() const
 {
     return this->_gradeToExecute;
 }
@@ -61,6 +61,16 @@ const char* AForm::GradeTooHighException::what() const noexcept
 const char* AForm::GradeTooLowException::what() const noexcept
 {
     return "Error: Grade is too low. Grades range from 1 to 150.";
+}
+
+const char* AForm::FormNotSigned::what() const noexcept
+{
+    return ("Error: Form not signed.");
+}
+
+const char* AForm::FileNotOpen::what() const noexcept
+{
+    return ("Error: File cannot be opened.");
 }
 
 /*

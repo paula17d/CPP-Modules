@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/08 14:39:19 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/16 19:00:52 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #define BLUE "\033[34m"
 #define LIGHT_GREEN "\033[38;5;120m"
 #define RESET "\033[0m"
+
+// TODO: add copy constructor & operator= in each exercise and class
 
 class Bureaucrat
 {
