@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 20:32:16 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/18 17:45:01 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ class Bureaucrat
         void incrementGrade(int amount);
         void decrementGrade(int amount);
         void signForm(AForm &form);
+        void executeForm(AForm const & form) const;
     };
     
 // overload operator

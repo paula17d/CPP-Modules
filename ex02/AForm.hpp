@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:35 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/18 16:54:42 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/18 17:45:51 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AForm
         AForm(const std::string name, const int gradeToSign, \
             const int gradeToExecute);
         ~AForm();
-        std::string getName();
+        const std::string getName() const;
         bool getIsSigned() const;
         const int getGradeToSign();
         const int getGradeToExecute() const;

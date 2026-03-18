@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 20:32:26 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/18 17:54:42 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AForm.hpp"
 
 // constructor
-Bureaucrat::Bureaucrat() : _grade(0)
+Bureaucrat::Bureaucrat() : _name("Default name"), _grade(0)
 {}
 
 // personalized constructor
@@ -104,6 +104,24 @@ void Bureaucrat::signForm(AForm &form) // TODO: finish this function (last big p
         // <bureaucrat> couldn’t sign <form> because <reason>
         std::cerr << "Bureaucrat " << this->_name << " couldn't sign " << \
         form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+/*
+It must attempt to execute the form. 
+If successful, print something like: <bureaucrat> executed <form>
+If not, print an explicit error message.
+*/
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
     }
 }
 

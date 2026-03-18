@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/18 16:55:42 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/18 17:45:38 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
 AForm::~AForm()
 {}
 
-std::string AForm::getName()
+const std::string AForm::getName() const
 {
     return this->_name;
 }
