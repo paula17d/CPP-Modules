@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:20 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/18 16:48:58 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 19:22:16 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,40 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("Default Target")
 {
-    std::cout << GREEN << "PresidentialPardonForm created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "PresidentialPardonForm created with target " << this->_target << \
+    " with default constructor" << RESET << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {       
-    std::cout << GREEN << "PresidentialPardonForm created with personalized constructor" << RESET << std::endl;  
+    std::cout << GREEN << "PresidentialPardonForm created with target " << this->_target << \
+    " with personalized constructor" << RESET << std::endl;  
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
+{
+    this->_target = other._target;
+
+    std::cout << GREEN << "PresidentialPardonForm created with target " << this->_target << \
+    " with copy constructor" << RESET << std::endl; 
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
+{
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
+
+    std::cout << GREEN << "PresidentialPardonForm created with target " << this->_target << \
+    " with assignment operator" << RESET << std::endl; 
+
+    return *this;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-    std::cout << RED << "PresidentialPardonForm destroyed" << RESET << std::endl;
+    std::cout << RED << "PresidentialPardonForm destroyed with destructor" << RESET << std::endl;
 }
 
 /*

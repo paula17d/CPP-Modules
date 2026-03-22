@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/18 17:45:38 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 20:40:26 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-// TODO: fix later when knowing what to keep and what not bc of grades exceptions
 AForm::AForm() : _name(""), _isSigned(false), _gradeToSign(0), _gradeToExecute(0)
 {}
 
@@ -26,8 +25,31 @@ AForm::AForm(const std::string name, const int gradeToSign, const int gradeToExe
         throw GradeTooLowException();
 
     std::cout << GREEN << "Form created with name " << this->_name << \
-    ", form signed: " << this->_isSigned << ", grade signed: " << this->_gradeToSign << \
-    ", grade executed: " << this->_gradeToExecute << RESET << std::endl;
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << RESET << std::endl;
+}
+
+AForm::AForm(const AForm &other) : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+{
+    this->_isSigned = other._isSigned;
+
+    std::cout << GREEN << "AForm created with name " << this->_name << \
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << "with copy constructor" << RESET << std::endl;
+}
+
+AForm &AForm::operator=(const AForm &other)
+{
+    if (this != &other)
+    {
+        this->_isSigned = other._isSigned;
+    }
+
+    std::cout << GREEN << "AForm created with name " << this->_name << \
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << "with assignment operator" << RESET << std::endl;
+    
+    return *this;
 }
 
 AForm::~AForm()

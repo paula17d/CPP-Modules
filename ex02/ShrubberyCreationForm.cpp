@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:10 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/18 17:02:39 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 20:47:23 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,40 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("ShrubberyCreationForm", 145, 137), _target("default")
 {
-    std::cout << GREEN << "ShrubberyCreationForm created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "ShrubberyCreationForm created with target " << this->_target << \
+    " with default constructor" << RESET << std::endl;  
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {       
-    std::cout << GREEN << "ShrubberyCreationForm created with personalized constructor" << RESET << std::endl;  
+    std::cout << GREEN << "ShrubberyCreationForm created with target " << this->_target << \
+    " with personalized constructor" << RESET << std::endl;  
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
+{
+    this->_target = other._target;
+
+    std::cout << GREEN << "ShrubberyCreationForm created with target " << this->_target << \
+    " with copy constructor" << RESET << std::endl; 
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
+
+    std::cout << GREEN << "ShrubberyCreationForm created with target " << this->_target << \
+    " with assignment operator" << RESET << std::endl; 
+
+    return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << RED << "ShrubberyCreationForm destroyed" << RESET << std::endl;
+    std::cout << RED << "ShrubberyCreationForm destroyed with destructor" << RESET << std::endl;
 }
 
 /*
@@ -43,7 +66,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
     if (executor.getGrade() > getGradeToExecute())
         throw GradeTooLowException();
 
-    
     std::ofstream file(this->_target + "_shrubbery");
     if (file.is_open())
     {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:15 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/18 16:49:03 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 20:47:23 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,40 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), _target("Default Target")
 {
-    std::cout << GREEN << "RobotomyRequestForm created with default constructor" << RESET << std::endl;
+    std::cout << GREEN << "RobotomyRequestForm created with target " << this->_target << \
+    " with default constructor" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target)
 {       
-    std::cout << GREEN << "RobotomyRequestForm created with personalized constructor" << RESET << std::endl;  
+    std::cout << GREEN << "RobotomyRequestForm created with target " << this->_target << \
+    " with personalized constructor" << RESET << std::endl;  
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+{
+    this->_target = other._target;
+
+    std::cout << GREEN << "RobotomyRequestForm created with target " << this->_target << \
+    " with copy constructor" << RESET << std::endl; 
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
+{
+    if (this != &other)
+    {
+        this->_target = other._target;
+    }
+
+    std::cout << GREEN << "RobotomyRequestForm created with target " << this->_target << \
+    " with assignment operator" << RESET << std::endl; 
+
+    return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-    std::cout << RED << "RobotomyRequestForm destroyed" << RESET << std::endl;
+    std::cout << RED << "RobotomyRequestForm destroyed with destructor" << RESET << std::endl;
 }
 
 /*
@@ -46,7 +69,7 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
         
     std::cout << "Robotomy Request Form: Drilling noises." << std::endl;
 
-    std::srand(std::time(NULL)); // use current time as starting value so random numbers are different every run
+    std::srand(time(NULL)); // use current time as starting value so random numbers are different every run
     int randomNum = std::rand();
     // std::cout << randomNum << std::endl;
     

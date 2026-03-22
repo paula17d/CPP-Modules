@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:13 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/18 15:50:04 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 19:07:33 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 class RobotomyRequestForm : public AForm 
 {
+    private:
+        std::string _target;
+        
     public:
         // Default constructor
         RobotomyRequestForm();
@@ -32,10 +35,6 @@ class RobotomyRequestForm : public AForm
         ~RobotomyRequestForm();
         // Member functions
         virtual void execute(Bureaucrat const & executor) const;
-
-
-    private:
-        std::string _target;
 };
 
 #endif

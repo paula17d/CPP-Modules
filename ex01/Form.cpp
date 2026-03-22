@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/16 18:17:15 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 21:29:07 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-// TODO: fix later when knowing what to keep and what not bc of grades exceptions
-Form::Form() : _name(""), _isSigned(false), _gradeToSign(0), _gradeToExecute(0)
+Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {}
 
-// TODO: fix later when knowing what to keep and what not bc of isSigned
 Form::Form(const std::string name, const int gradeToSign, const int gradeToExecute) \
         : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
@@ -27,10 +25,33 @@ Form::Form(const std::string name, const int gradeToSign, const int gradeToExecu
         throw GradeTooLowException();
 
     std::cout << GREEN << "Form created with name " << this->_name << \
-    ", form signed: " << this->_isSigned << ", grade signed: " << this->_gradeToSign << \
-    ", grade executed: " << this->_gradeToExecute << RESET << std::endl;
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << RESET << std::endl;
 }
 
+Form::Form(const Form &other) : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+{
+    this->_isSigned = other._isSigned;
+
+    std::cout << GREEN << "Form created with name " << this->_name << \
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << "with copy constructor" << RESET << std::endl;
+}
+
+Form &Form::operator=(const Form &other)
+{
+    if (this != &other)
+    {
+        this->_isSigned = other._isSigned;
+    }
+
+    std::cout << GREEN << "Form created with name " << this->_name << \
+    ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
+    ", grade needed to execute: " << this->_gradeToExecute << "with assignment operator" << RESET << std::endl;
+    
+    return *this;
+}
+        
 Form::~Form()
 {}
 
@@ -83,9 +104,9 @@ void Form::beSigned(Bureaucrat &b)
 
 std::ostream& operator<<(std::ostream &out, Form &form)
 {
-    out << LIGHT_GREEN << form.getName() << ": [form is signed: " << form.getIsSigned() \
-    << "], [grade to sign: " << form.getGradeToSign() << "], [grade to execute: " \
-    << form.getGradeToExecute() << "]" << RESET;
+    out << "Form " << form.getName() << ": [form is signed: " << form.getIsSigned() \
+    << "], [grade needed to sign: " << form.getGradeToSign() << "], [grade needed to execute: " \
+    << form.getGradeToExecute() << "]";
 
     return out;
 }

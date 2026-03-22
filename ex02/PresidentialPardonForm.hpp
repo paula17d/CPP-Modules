@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:18 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 20:31:05 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 19:02:56 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 class PresidentialPardonForm : public AForm 
 {
+    private:
+        std::string _target;
+        
     public:
         // Default constructor
         PresidentialPardonForm();
@@ -32,9 +35,6 @@ class PresidentialPardonForm : public AForm
         ~PresidentialPardonForm();
         // Member Functions
         virtual void execute(Bureaucrat const & executor) const;
-
-    private:
-        std::string _target;
 };
 
 #endif

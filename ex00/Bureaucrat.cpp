@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/08 22:21:57 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 22:01:37 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,37 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         throw GradeTooLowException();
 
     std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
-    " and grade " << this->_grade << RESET << std::endl;
+    " and grade " << this->_grade << " with personalized constructor" << RESET << std::endl;
+}
+
+// copy constructor
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
+{
+    this->_grade = other._grade;
+    
+    std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << " with copy constructor" << RESET << std::endl;
+}
+
+// assignment operator
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    // name variable cannot be changed bc constant
+    if (this != &other)
+    {
+        this->_grade = other._grade;
+    }
+    
+    std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << " with copy assignment operator" << RESET << std::endl;
+    
+    return *this;
 }
 
 // destructor
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << RED << "Bureaucrat destroyed with name " << this->_name << \
+    std::cout << RED << "Bureaucrat destroyed with destructor with name " << this->_name << \
     " and grade " << this->_grade << RESET << std::endl;
 }
 
@@ -71,8 +95,8 @@ void Bureaucrat::incrementGrade(int amount)
     if (this->_grade < 1)
         throw GradeTooHighException();
 
-    std::cout << BLUE << "Grade has been incremented by " << amount \
-    << ". New grade: " << this->_grade << RESET << std::endl;
+    std::cout << "Grade has been incremented by " << amount \
+    << ". New grade: " << this->_grade << std::endl;
 }
 
 void Bureaucrat::decrementGrade(int amount)
@@ -82,15 +106,15 @@ void Bureaucrat::decrementGrade(int amount)
     if (this->_grade > 150)
         throw GradeTooLowException();
 
-    std::cout << BLUE << "Grade has been decremented by " << amount \
-    << ". New grade: " << this->_grade << RESET << std::endl;
+    std::cout << "Grade has been decremented by " << amount \
+    << ". New grade: " << this->_grade << std::endl;
 }
 
 // overload operator
 std::ostream& operator<<(std::ostream& out, Bureaucrat &user)
 {
-    out << LIGHT_GREEN << user.getName() << ", bureaucrat grade " \
-    << user.getGrade() << "." << RESET;
-    
+    out << "Bureaucrat [" << user.getName() << "], Grade [" \
+    << user.getGrade() << "]";
+
     return out;
 }

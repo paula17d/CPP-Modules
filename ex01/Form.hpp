@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:35 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/16 18:00:20 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 20:54:34 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FORM_HPP
 
 #include <iostream>
-// #include "Bureaucrat.hpp"
 class Bureaucrat;
 
 class Form
@@ -29,6 +28,8 @@ class Form
         Form();
         Form(const std::string name, const int gradeToSign, \
             const int gradeToExecute);
+        Form(const Form &other);
+        Form &operator=(const Form &other);
         ~Form();
         std::string getName();
         bool getIsSigned();
@@ -45,6 +46,7 @@ class Form
         };
         
         void beSigned(Bureaucrat &b);
+        
 };
 
 std::ostream& operator<<(std::ostream &out, Form &form);

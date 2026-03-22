@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 19:00:52 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 22:03:04 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 #define LIGHT_GREEN "\033[38;5;120m"
 #define RESET "\033[0m"
 
-// TODO: add copy constructor & operator= in each exercise and class
-
 class Bureaucrat
 {
     private:
@@ -37,6 +35,10 @@ class Bureaucrat
         Bureaucrat(); 
         // personalized constructor
         Bureaucrat(std::string name, int grade);
+        // copy constructor
+        Bureaucrat(const Bureaucrat &other);
+        // assignment operator
+        Bureaucrat &operator=(const Bureaucrat &other);
         // destructor
         ~Bureaucrat(); 
         // setters

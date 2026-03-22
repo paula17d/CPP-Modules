@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:12 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/08 22:16:17 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 22:02:37 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,21 @@ int main ()
 {
     try 
     {
-        /* do some stuff with bureaucrats */
-        // Test: instaniating a bureaucrat
-        Bureaucrat x("User X", 3);
+        // Test 0 (ex. to throw an exception: change the bureaucrat's grade out of its range 1-150)
+        std::cout << ORANGE << "********* TEST 0: INSTANTIATION OF A BUREAUCRAT WITH A VALID GRADE **********************" << RESET << std::endl;
+        Bureaucrat x("Marie", 3);
 
-        // Error Test: instaniating a bureaucrat (grade out of range)
-        // Bureaucrat y("User Y", 528);
-
-        // Test: incrementing and decrementing a grade
+        // Test 1 (ex. to throw an exception: increment/decrement a grade out of range)
+        std::cout << ORANGE << "********* TEST 1: INCREMENTATION/DECREMENTATION OF BUREAUCRAT'S GRADE *******************" << RESET << std::endl;
         x.incrementGrade(1);
         x.decrementGrade(22);
 
-        // Error Test: incrementing grade (grade out of range)
-        // x.incrementGrade(1000);
-
-        // Test: overload of the insertion (<<) operator to "<name>, bureaucrat grade <grade>"
+        // Test 2
+        std::cout << ORANGE << "********* TEST 2: DISPLAY INFO OF BUREAUCRAT ********************************************" << RESET << std::endl;
         std::cout << x << std::endl;
     }
     catch (std::exception &e)
     {
-        /* handle exception */
         std::cerr << ORANGE << e.what() << RESET << std::endl;
     }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/16 18:05:28 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 21:37:42 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,37 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
         throw GradeTooLowException();
 
     std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
-    " and grade " << this->_grade << RESET << std::endl;
+    " and grade " << this->_grade << " with personalized constructor" << RESET << std::endl;
+}
+
+// copy constructor
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
+{
+    this->_grade = other._grade;
+    
+    std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << " with copy constructor" << RESET << std::endl;
+}
+
+// assignment operator
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
+{
+    // name variable cannot be changed bc constant
+    if (this != &other)
+    {
+        this->_grade = other._grade;
+    }
+    
+    std::cout << GREEN << "Bureaucrat created with name " << this->_name << \
+    " and grade " << this->_grade << " with copy assignment operator" << RESET << std::endl;
+    
+    return *this;
 }
 
 // destructor
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << RED << "Bureaucrat destroyed with name " << this->_name << \
+    std::cout << RED << "Bureaucrat destroyed with destructor with name " << this->_name << \
     " and grade " << this->_grade << RESET << std::endl;
 }
 
@@ -88,10 +112,8 @@ void Bureaucrat::decrementGrade(int amount)
 }
 
 // calls the beSigned ft to attempt to sign the form (prints something wether or not form is signed successfully)
-void Bureaucrat::signForm(Form &form) // TODO: finish this function (last big paragraph in subject)
+void Bureaucrat::signForm(Form &form)
 {
-    //isSigned is true?
-    // <bureaucrat> signed <form>
     try
     {
         form.beSigned(*this);
@@ -101,9 +123,8 @@ void Bureaucrat::signForm(Form &form) // TODO: finish this function (last big pa
     }
     catch (std::exception &e)
     {
-        // <bureaucrat> couldn’t sign <form> because <reason>
         std::cerr << "Bureaucrat " << this->_name << " couldn't sign " << \
-        form.getName() << " because " << e.what() << std::endl;
+        form.getName() << ". " << e.what() << std::endl;
     }
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:35 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/18 17:45:51 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 19:13:27 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class AForm
         AForm();
         AForm(const std::string name, const int gradeToSign, \
             const int gradeToExecute);
+        AForm(const AForm &other);
+        AForm &operator=(const AForm &other);
         ~AForm();
         const std::string getName() const;
         bool getIsSigned() const;
@@ -53,7 +55,7 @@ class AForm
         };
         
         void beSigned(Bureaucrat &b);
-        virtual void execute(Bureaucrat const & executor) const = 0;
+        virtual void execute(Bureaucrat const & executor) const = 0; // pure virtual ft making the class abstract
 };
 
 std::ostream& operator<<(std::ostream &out, AForm &form);

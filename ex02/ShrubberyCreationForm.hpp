@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 18:23:08 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/18 16:32:13 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/03/22 19:08:26 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 class ShrubberyCreationForm : public AForm 
 {
+    private:
+        std::string _target;
+        
     public:
         // Default constructor
         ShrubberyCreationForm();
@@ -33,9 +36,6 @@ class ShrubberyCreationForm : public AForm
         ~ShrubberyCreationForm();
         // Member functions
         void execute(Bureaucrat const &executor) const;
-
-    private:
-        std::string _target;
 };
 
 #endif
