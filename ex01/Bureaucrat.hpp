@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/22 20:55:00 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/22 22:13:34 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Bureaucrat
         Bureaucrat(std::string name, int grade);
         // copy constructor
         Bureaucrat(const Bureaucrat &other);
-        // assignment operator
+        // copy assignment operator
         Bureaucrat &operator=(const Bureaucrat &other);
         // destructor
         ~Bureaucrat(); 

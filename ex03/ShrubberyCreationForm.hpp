@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 18:23:18 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/22 22:14:57 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/03/16 18:23:08 by pauladretta       #+#    #+#             */
+/*   Updated: 2026/03/22 19:08:26 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include <cstdlib>
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+# include <iostream>
+# include <fstream>
+# include "AForm.hpp"
+# include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public AForm 
+class ShrubberyCreationForm : public AForm 
 {
     private:
         std::string _target;
         
     public:
         // Default constructor
-        PresidentialPardonForm();
-        // Personalized constructor
-        PresidentialPardonForm(std::string target);
+        ShrubberyCreationForm();
+        // Costum constructor
+        ShrubberyCreationForm(std::string target);
         // Copy constructor
-        PresidentialPardonForm(const PresidentialPardonForm &other);
+        ShrubberyCreationForm(const ShrubberyCreationForm &other);
         // Copy assignment operator
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+        ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
         // Destructor
-        ~PresidentialPardonForm();
-        // Member Functions
-        virtual void execute(Bureaucrat const & executor) const;
+        ~ShrubberyCreationForm();
+        // Member functions
+        void execute(Bureaucrat const &executor) const;
 };
 
 #endif

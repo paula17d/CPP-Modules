@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 18:23:18 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/22 22:14:57 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/03/16 18:23:13 by pauladretta       #+#    #+#             */
+/*   Updated: 2026/03/22 19:07:33 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include <cstdlib>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public AForm 
+class RobotomyRequestForm : public AForm 
 {
     private:
         std::string _target;
         
     public:
         // Default constructor
-        PresidentialPardonForm();
-        // Personalized constructor
-        PresidentialPardonForm(std::string target);
+        RobotomyRequestForm();
+        // Custom constructor
+        RobotomyRequestForm(std::string target);
         // Copy constructor
-        PresidentialPardonForm(const PresidentialPardonForm &other);
+        RobotomyRequestForm(const RobotomyRequestForm &other);
         // Copy assignment operator
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &other);
+        RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
         // Destructor
-        ~PresidentialPardonForm();
-        // Member Functions
+        ~RobotomyRequestForm();
+        // Member functions
         virtual void execute(Bureaucrat const & executor) const;
 };
 

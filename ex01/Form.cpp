@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 18:50:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/03/22 21:29:07 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/22 22:13:39 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Form &Form::operator=(const Form &other)
 
     std::cout << GREEN << "Form created with name " << this->_name << \
     ", form signed: " << this->_isSigned << ", grade needed to sign: " << this->_gradeToSign << \
-    ", grade needed to execute: " << this->_gradeToExecute << "with assignment operator" << RESET << std::endl;
+    ", grade needed to execute: " << this->_gradeToExecute << "with copy assignment operator" << RESET << std::endl;
     
     return *this;
 }

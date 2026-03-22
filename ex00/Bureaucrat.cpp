@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 15:52:00 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/03/22 22:01:37 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/03/22 22:13:19 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
     " and grade " << this->_grade << " with copy constructor" << RESET << std::endl;
 }
 
-// assignment operator
+// copy assignment operator
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
     // name variable cannot be changed bc constant
