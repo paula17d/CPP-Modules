@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 16:48:49 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 00:19:09 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/04 00:27:33 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void ScalarConverter::convertAndPrintChar(std::string &input)
     {
         std::cout << "char: ";
         // if 'a' & one letter -> just print that letter
-        if (input.length() == 1 && isalpha(input[0])) // to ensure it's a letter
+        if (input.length() == 1 && isprint(input[0])) // to ensure it's a letter
         {
             std::cout << input[0] << std::endl;
         }
