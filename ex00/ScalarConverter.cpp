@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 16:48:49 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 21:30:43 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/04 22:27:57 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,15 @@ void ScalarConverter::convertAndPrintFloat(std::string &input)
             std::cout << input + "f" << std::endl;
         else
         {
-            float var = std::stof(input);
+            size_t pos;
+            float var = std::stof(input, &pos);
+            
+            // stof stops at first invalid character and continues, the if-check stops that (ex. "+inffsdnfwjekhf")
+            if (pos != input.length()) 
+            {
+                std::cout << "impossible" << std::endl;
+                return;
+            }
             
             // send a seperate stream into a string first (bc if using std::fixed, std::cout will continue to use this format after as well)
             std::ostringstream oss;
@@ -145,8 +153,16 @@ void ScalarConverter::convertAndPrintDouble(std::string &input)
         }
         else
         {
-            double var = std::stod(input);
-
+            size_t pos;
+            float var = std::stof(input, &pos);
+            
+            // stof stops at first invalid character and continues, the if-check stops that (ex. "+inffsdnfwjekhf")
+            if (pos != input.length()) 
+            {
+                std::cout << "impossible" << std::endl;
+                return;
+            }
+            
             // send a seperate stream into a string first (bc if using std::fixed, std::cout will continue to use this format after as well)
             std::ostringstream oss;
             oss << std::fixed << var;
