@@ -5,19 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 17:01:28 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 21:23:42 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/04/04 18:18:23 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/04/04 21:18:33 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include "Base.hpp"
+#include "functions.hpp"
 
-int main (int argc, char **argv)
+int main ()
 {
-    if (argc != 2)
-        return 1;
+    Base *ptr = generate();
+    identify(ptr);
+    identify(*ptr);
 
-    ScalarConverter::convert(argv[1]);
-  
+    delete ptr;
+
     return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/04 12:43:04 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/04 14:09:39 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/04 20:12:26 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
+#define ORANGE "\033[38;5;208m"
 #define RESET "\033[0m"
 
 struct Data

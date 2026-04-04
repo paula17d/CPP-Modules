@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 17:01:28 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 21:23:42 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/04/04 17:41:52 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/04/04 21:20:17 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef BASE_HPP
+#define BASE_HPP
 
-int main (int argc, char **argv)
+#pragma once
+
+#include <cstdlib>
+#include <iostream>
+
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
+
+class Base
 {
-    if (argc != 2)
-        return 1;
-
-    ScalarConverter::convert(argv[1]);
-  
-    return 0;
-}
+    public:
+        // destructor
+        virtual ~Base();
+};
+    
+#endif

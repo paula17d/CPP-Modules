@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   functions.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 17:01:28 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 21:23:42 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/04/04 21:11:30 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/04/04 21:13:46 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef FUNCTIONS_HPP
+#define FUNCTIONS_HPP
 
-int main (int argc, char **argv)
-{
-    if (argc != 2)
-        return 1;
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-    ScalarConverter::convert(argv[1]);
-  
-    return 0;
-}
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/03 17:01:28 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/04 21:23:42 by pdrettas         ###   ########.fr       */
+/*   Created: 2026/04/04 17:47:25 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/04/04 21:15:52 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#ifndef C_HPP
+#define C_HPP
 
-int main (int argc, char **argv)
+#include "Base.hpp"
+
+class C : public Base
 {
-    if (argc != 2)
-        return 1;
 
-    ScalarConverter::convert(argv[1]);
-  
-    return 0;
-}
+};
+
+#endif
