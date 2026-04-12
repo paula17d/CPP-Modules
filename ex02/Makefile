@@ -6,19 +6,20 @@
 #    By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/11 17:19:31 by pauladretta       #+#    #+#              #
-#    Updated: 2026/04/12 17:28:55 by pauladretta      ###   ########.fr        #
+#    Updated: 2026/04/12 17:35:22 by pauladretta      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex02
 
-SRC			=	./main.cpp
+SRC			=	./mainIntra.cpp
 				
 OBJ			=	$(SRC:.cpp=.o)
 			
 CXX			=	c++
 
 CXXFLAGS	=	 -std=c++17
+CXXFLAGS 	+=	 -I.
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)

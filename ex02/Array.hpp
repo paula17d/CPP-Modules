@@ -6,9 +6,12 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 13:51:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/12 17:22:28 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/12 17:33:26 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <cstddef>
 #include <iostream>
@@ -137,3 +140,5 @@ const char *Array<T>::OutOfBounds::what() const noexcept
 {
     return "Index is out of bounds.";
 }
+
+#endif
