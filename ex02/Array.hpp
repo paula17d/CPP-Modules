@@ -1,0 +1,106 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/12 13:51:03 by pauladretta       #+#    #+#             */
+/*   Updated: 2026/04/12 16:22:59 by pauladretta      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <cstddef>
+#include <iostream>
+
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define ORANGE "\033[38;5;208m"
+#define BLUE "\033[34m"
+#define LIGHT_GREEN "\033[38;5;120m"
+#define RESET "\033[0m"
+
+template<typename T>
+class Array
+{
+    private:
+        unsigned int _size;
+
+    public:
+        T *_elements; // TODO: back to private
+        Array();
+        // personalized constructor
+        Array( unsigned int size);
+        // copy constructor
+        Array(const Array &other);
+        // copy assignment operator
+        Array &operator=(const Array &other);
+        // getters
+        unsigned int size();
+};
+
+template<typename T>
+Array<T>::Array() : _elements(NULL), _size(0)
+{
+    std::cout << GREEN << "Array created with default constructor." << RESET << std::endl;   
+}
+
+/*
+T → “just create it” (may leave it uninitialized)
+T() → “create it and initialize it to a default value”
+*/
+
+template<typename T>
+Array<T>::Array(unsigned int size)
+{
+    _size = size;
+    _elements = new T[size]();
+
+    std::cout << GREEN << "Array created with personalized constructor." << RESET << std::endl;   
+}
+
+/*
+Construction by copy and assignment operator. 
+In both cases, modifying either the original array 
+or its copy after copying musn’t affect the other array
+-> w deep copy
+*/
+template<typename T>
+Array<T>::Array(const Array &other)
+{
+    this->_size = other._size;
+    
+    this->_elements = new T[other._size](); // create deep copy (no shallow copy)
+    for (int i = 0; i < other._size; i++)
+    {
+        this->_elements[i] = other._elements[i];
+    }
+    
+    std::cout << GREEN << "Array created with copy constructor." << RESET << std::endl;   
+}
+
+template<typename T>
+Array<T>& Array<T>::operator=(const Array &other)
+{
+    if (this != &other)
+    {
+        this->_size = other._size;
+    
+        this->_elements = new T[other._size](); // create deep copy (no shallow copy)
+        for (int i = 0; i < other._size; i++)
+        {
+            this->_elements[i] = other._elements[i];
+        }
+    }
+    
+    std::cout << GREEN << "Array created with copy assignment operator." << RESET << std::endl;   
+
+    return *this;
+}
+
+template<typename T>
+unsigned int Array<T>::size()
+{
+    return _size;
+}
+

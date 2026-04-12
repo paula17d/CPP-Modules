@@ -6,10 +6,9 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 17:20:36 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/11 18:02:12 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/11 19:08:02 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
