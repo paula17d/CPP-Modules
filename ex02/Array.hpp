@@ -6,7 +6,7 @@
 /*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 13:51:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/12 16:22:59 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/12 17:22:28 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ template<typename T>
 class Array
 {
     private:
+        T *_elements;
         unsigned int _size;
 
     public:
-        T *_elements; // TODO: back to private
         Array();
         // personalized constructor
         Array( unsigned int size);
@@ -35,8 +35,18 @@ class Array
         Array(const Array &other);
         // copy assignment operator
         Array &operator=(const Array &other);
+        // destructor
+        ~Array();
         // getters
-        unsigned int size();
+        unsigned int size() const;
+        // operator
+        T& operator[](int index);
+        // exception
+        class OutOfBounds : public std::exception
+        {
+            public:
+                const char *what() const noexcept;
+        };
 };
 
 template<typename T>
@@ -99,8 +109,31 @@ Array<T>& Array<T>::operator=(const Array &other)
 }
 
 template<typename T>
-unsigned int Array<T>::size()
+Array<T>::~Array()
+{
+    delete this->_elements;
+    
+    std::cout << RED << "Array destroyed with destructor." << RESET << std::endl;
+}
+
+template<typename T>
+unsigned int Array<T>::size() const
 {
     return _size;
 }
 
+template<typename T>
+T& Array<T>::operator[](int index)
+{
+    if (index < 0)
+        throw OutOfBounds();
+    else if (index >= (_size))
+        throw OutOfBounds();
+    return _elements[index];
+}
+
+template<typename T>
+const char *Array<T>::OutOfBounds::what() const noexcept
+{
+    return "Index is out of bounds.";
+}
