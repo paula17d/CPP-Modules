@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 18:06:20 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/11 19:10:09 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/13 13:31:44 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ void print(T a)
 
 int main ()
 {
-    // Test 1 
+    // TEST 1 
+    std::cout << BLUE << "*** TEST 1: iterate through int array ***" << RESET << std::endl;
     int arr[] = {0, 1, 2, 3};
-    size_t arrLen = sizeof(arr) / sizeof(int);
+    size_t arrLen = sizeof(arr) / sizeof(int); // # of elements = total bytes of array / bytes per element
     iter(arr, arrLen, print<int>);
 
     // Test 2
+    std::cout << BLUE << "*** TEST 2: iterate through char array ***" << RESET << std::endl;
     char arr1[] = {'a', 'b', 'c', 'd'};
     size_t arr1Len = sizeof(arr1) / sizeof(char);
     iter(arr1, arr1Len, print<char>);

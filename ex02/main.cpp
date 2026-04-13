@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 14:55:32 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/12 17:32:30 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/13 14:10:10 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ but instead can write arr[index]
 */
 int main ()
 {
-    // Test 1: default constructor
+    // TEST 1: default constructor (empty array)
+    std::cout << BLUE << "*** TEST 1: default constructor ***" << RESET << std::endl;
     Array<int> arr;
     
     for (int i = 0; i < arr.size(); i++)
@@ -26,7 +27,8 @@ int main ()
         std::cout << "arr[ " << i << " ] = " << arr[i] << std::endl;
     }
 
-    // Test 2: personalized constructor
+    // TEST 2: personalized constructor (array with specific size)
+    std::cout << BLUE << "*** TEST 2: personalized constructor ***" << RESET << std::endl;
     Array<int> arra(4);
     for (int i = 0; i < arra.size(); i++)
     {
@@ -43,28 +45,33 @@ int main ()
         std::cout << "arra[ " << i << " ] = " << arra[i] << std::endl;
     }
 
-    // Test 3: copy constructor
-    Array newArr(arra);
+    // TEST 3: copy constructor
+    std::cout << BLUE << "*** TEST 3: copy constructor ***" << RESET << std::endl;
+    Array<int> newArr(arra);
     for (int i = 0; i < newArr.size(); i++)
     {
         std::cout << "newArr[ " << i << " ] = " << newArr[i] << std::endl;
     }
-    arra[0] = 7;
+    arra[0] = 7; // newArr[0] should not change
     for (int i = 0; i < newArr.size(); i++)
     {
         std::cout << "newArr[ " << i << " ] = " << newArr[i] << std::endl;
     }
     
-    // Test 4: copy assignment operator
+    // TEST 4: copy assignment operator
+    std::cout << BLUE << "*** TEST 4: copy assignment operator ***" << RESET << std::endl;
     newArr = arra;
     for (int i = 0; i < newArr.size(); i++)
     {
         std::cout << "newArr[ " << i << " ] = " << newArr[i] << std::endl;
     }
 
-    // Test 5: index out of bounds
+    // TEST 5: index out of bounds
+    std::cout << BLUE << "*** TEST 5: index out of bounds ***" << RESET << std::endl;
     try
     {
+        // index within existing index range
+        newArr[2] = 8;
         // give value to a non-existing index in the array
         newArr[-1] = 8;
         newArr[4] = 8;
@@ -74,5 +81,26 @@ int main ()
         std::cout << e.what() << std::endl;
     }
 
+    // TEST 6: class template works with complex types
+    std::cout << BLUE << "*** TEST 6: using complex types ***" << RESET << std::endl;
+    class Person
+    {
+        public:
+            std::string name;
+            int age;
+            Person() : name("unknown"), age(0) {}
+            Person(std::string n, int a) : name(n), age(a) {}
+    };
+    
+    Array<Person> people(2);
+
+    people[0] = Person("Alice", 30);
+    people[1] = Person("Bob", 25);
+
+    for (int i = 0; i < people.size(); i++)
+    {
+        std::cout << people[i].name << ", " << people[i].age << std::endl;
+    }
+    
     return 0;
 }

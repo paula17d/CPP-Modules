@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 13:51:03 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/12 17:33:26 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/13 14:17:31 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <cstddef>
 #include <iostream>
+#include <string>
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -31,6 +32,7 @@ class Array
         unsigned int _size;
 
     public:
+        // default constructor
         Array();
         // personalized constructor
         Array( unsigned int size);
@@ -52,6 +54,7 @@ class Array
         };
 };
 
+// default constructor
 template<typename T>
 Array<T>::Array() : _elements(NULL), _size(0)
 {
@@ -62,7 +65,7 @@ Array<T>::Array() : _elements(NULL), _size(0)
 T → “just create it” (may leave it uninitialized)
 T() → “create it and initialize it to a default value”
 */
-
+// personalized constructor
 template<typename T>
 Array<T>::Array(unsigned int size)
 {
@@ -78,8 +81,9 @@ In both cases, modifying either the original array
 or its copy after copying musn’t affect the other array
 -> w deep copy
 */
+// copy constructor
 template<typename T>
-Array<T>::Array(const Array &other)
+Array<T>::Array(const Array &other) // no need to free old memory bc object doesn't exist yet
 {
     this->_size = other._size;
     
@@ -92,11 +96,14 @@ Array<T>::Array(const Array &other)
     std::cout << GREEN << "Array created with copy constructor." << RESET << std::endl;   
 }
 
+// copy assignment operator
 template<typename T>
 Array<T>& Array<T>::operator=(const Array &other)
 {
     if (this != &other)
     {
+        delete[] this->_elements; // free old memory to make "space" for new one
+        
         this->_size = other._size;
     
         this->_elements = new T[other._size](); // create deep copy (no shallow copy)
@@ -111,20 +118,23 @@ Array<T>& Array<T>::operator=(const Array &other)
     return *this;
 }
 
+// destructor
 template<typename T>
 Array<T>::~Array()
 {
-    delete this->_elements;
+    delete[] this->_elements; // used for arrays, calls destructor every element
     
     std::cout << RED << "Array destroyed with destructor." << RESET << std::endl;
 }
 
+// getters
 template<typename T>
 unsigned int Array<T>::size() const
 {
     return _size;
 }
 
+// operator overloading
 template<typename T>
 T& Array<T>::operator[](int index)
 {
@@ -135,6 +145,7 @@ T& Array<T>::operator[](int index)
     return _elements[index];
 }
 
+// exception
 template<typename T>
 const char *Array<T>::OutOfBounds::what() const noexcept
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 18:06:21 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/11 19:08:25 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/13 13:21:30 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #define ITER_HPP
 
 #include <iostream>
+
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 /*
 Implement a function template iter that takes 3 parameters and returns nothing.
@@ -34,7 +39,6 @@ void iter(T *arr, const size_t len, F ft)
     {
         ft(arr[i]);
     }
-
 }
 
 #endif

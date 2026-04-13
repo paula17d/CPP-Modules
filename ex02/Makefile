@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+         #
+#    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/11 17:19:31 by pauladretta       #+#    #+#              #
-#    Updated: 2026/04/12 17:35:22 by pauladretta      ###   ########.fr        #
+#    Updated: 2026/04/13 14:18:36 by pdrettas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex02
 
-SRC			=	./mainIntra.cpp
+SRC			=	./main.cpp
 				
 OBJ			=	$(SRC:.cpp=.o)
 			
