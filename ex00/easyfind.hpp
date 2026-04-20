@@ -22,7 +22,7 @@ template<typename T>
 typename T::iterator easyfind(T &container, int num)
 {
     // if failure: returns iteratorto element or end() like behavior of standard containers
-    return find(container.begin(), container.end(), num); 
+    return std::find(container.begin(), container.end(), num); 
 }
 
 #endif

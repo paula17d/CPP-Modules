@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 22:46:31 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/14 22:46:34 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/20 16:15:26 by pauladretta      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int main ()
 {
+    // TODO: edit error return
     // TEST 1: container type - vector
     {
         // declare a vector here
         std::vector<int> v = {7, 8, 9, 10, 11};
-        int num = 10;
+        int num = 13;
     
         // put vector into function
         std::vector<int>::iterator it = easyfind(v, num);
