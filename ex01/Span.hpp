@@ -1,7 +1,7 @@
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
-#include <iostream>>
+#include <iostream>
 #include <vector>
 
 #define RED "\033[31m"
@@ -14,8 +14,8 @@
 class Span
 {
     private: 
-        unsigned int _N;
-        std::vector<int> _nums;
+        unsigned int _N; // size/capacity of vector
+        std::vector<int> _nums; // vector filled w digits/numbers
 
     public:
         // default constructor
@@ -28,6 +28,19 @@ class Span
         Span operator=(const Span &other);
         // destructor
         ~Span();
+        // getters
+        std::vector<int> getNums();
+        // member function
+        void addNumber(int num);
+        // exceptions
+        class SpanIsFull : public std::exception
+        {
+            public:
+                const char *what() const noexcept;
+        };
 };
+
+// output operator
+std::ostream& operator<<(std::ostream &out, std::vector<int> v);
 
 #endif

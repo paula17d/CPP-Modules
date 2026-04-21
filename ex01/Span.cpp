@@ -48,3 +48,45 @@ Span::~Span()
 {
     std::cout << RED << "Span destroyed with destructor." << RESET << std::endl;
 }
+
+// getters
+std::vector<int> Span::getNums()
+{
+    return this->_nums;
+}
+
+/*
+to add a single number to the Span. It will be used in order to fill it. 
+Any attempt to add a new element if there are already N elements stored 
+should throw an exception.
+*/
+void Span::addNumber(int num)
+{
+    // if _nums vector size is smaller than _N
+        // add a single number to the Span
+    if (!(this->_nums.size() < this->_N))
+    {
+        throw SpanIsFull();
+    }
+    
+    this->_nums.push_back(num);
+}
+
+const char* Span::SpanIsFull::what() const noexcept
+{
+    return "Span is already full.";
+}
+
+
+
+// print
+std::ostream& operator<<(std::ostream &out, const Span &s)
+{
+    
+    for (int i = 0; i <= s.get; i++)
+    {
+        out <<
+    }
+
+    return out;
+}
