@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <algorithm>
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -32,8 +34,16 @@ class Span
         std::vector<int> getNums();
         // member function
         void addNumber(int num);
+        size_t shortestSpan() const;
+        size_t longestSpan() const;
+        void addMultipleNumbers();
         // exceptions
         class SpanIsFull : public std::exception
+        {
+            public:
+                const char *what() const noexcept;
+        };
+        class NoSpanFound : public std::exception
         {
             public:
                 const char *what() const noexcept;
@@ -41,6 +51,6 @@ class Span
 };
 
 // output operator
-std::ostream& operator<<(std::ostream &out, std::vector<int> v);
+std::ostream& operator<<(std::ostream &out, const std::vector<int>& v);
 
 #endif
