@@ -78,6 +78,7 @@ Implement a member function to add multiple numbers to your Span in a single cal
 */
 void Span::addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
+    // TODO: add check if num is full
     this->_nums.insert(this->_nums.end() -1, begin, end);
 }
 

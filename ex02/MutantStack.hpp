@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 12:25:21 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/23 16:28:30 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/24 00:41:14 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stack>
 #include <iostream>
+#include <list>
 
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -29,36 +30,23 @@ class MutantStack : public std::stack<T>
     private:
 
     public:
-        typedef typename std::stack<T>::container_type::iterator iterator;
-        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        using iterator = typename std::stack<T>::container_type::iterator;
+        using const_iterator = typename std::stack<T>::container_type::const_iterator;
 
         // default constructor
-        MutantStack();
+        MutantStack() = default;
         // copy constructor
-        MutantStack(const MutantStack &other);
+        MutantStack(const MutantStack &other) = default;
         // copy assignment operator
-        MutantStack &operator=(const MutantStack &other);
+        MutantStack &operator=(const MutantStack &other) = default;
         // destructor
-        ~MutantStack();
+        ~MutantStack() = default;
         // member functions
         iterator begin();
-        const_iterator begin() const;
+        const_iterator cbegin() const;
         iterator end();
-        const_iterator end() const;
+        const_iterator cend() const;
 };
-
-template <typename T>
-MutantStack<T>::MutantStack() : std::stack<T>()
-{
-    std::cout << GREEN << "MutantStack created with default constructor." << RESET << std::endl;  
-}
-
-// TODO: finish constructor, destructor, ,,,
-
-
-
-
-
 
 /*
 return an iterator that points to the beginning of the stack
@@ -68,13 +56,13 @@ return an iterator that points to the beginning of the stack
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
-    return std::stack<T>::c.begin();
+    return this->c.begin();
 }
 
 template <typename T>
-typename MutantStack<T>::const_iterator MutantStack<T>::begin() const
+typename MutantStack<T>::const_iterator MutantStack<T>::cbegin() const
 {
-    return std::stack<T>::c.cbegin();
+    return this->c.cbegin();
 }
 
 /*
@@ -83,13 +71,13 @@ return an iterator that points to the end of the stack
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::end()
 {
-    return std::stack<T>::c.end();
+    return this->c.end();
 }
 
 template <typename T>
-typename MutantStack<T>::const_iterator MutantStack<T>::end() const
+typename MutantStack<T>::const_iterator MutantStack<T>::cend() const
 {
-    return std::stack<T>::c.cend();
+    return this->c.cend();
 }
 
 #endif
