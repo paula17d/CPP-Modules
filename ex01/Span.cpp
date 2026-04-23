@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/24 01:14:32 by pdrettas          #+#    #+#             */
+/*   Updated: 2026/04/24 01:14:35 by pdrettas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 // default constructor
@@ -65,9 +77,8 @@ should throw an exception.
 void Span::addNumber(int num)
 {
     if (!(this->_nums.size() < this->_N))
-    {
         throw SpanIsFull();
-    }
+
     this->_nums.push_back(num);
 }
 
@@ -78,8 +89,10 @@ Implement a member function to add multiple numbers to your Span in a single cal
 */
 void Span::addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    // TODO: add check if num is full
-    this->_nums.insert(this->_nums.end() -1, begin, end);
+    if (this->_nums.size() >= this->_N)
+        throw SpanIsFull();
+
+    this->_nums.insert(this->_nums.end(), begin, end);
 }
 
 /*
@@ -92,7 +105,7 @@ size_t Span::shortestSpan() const
     if (this->_nums.size() < 2)
         throw NoSpanFound();
 
-    std::vector<int> sortedNums = this->_nums; // to not change the actual vector
+    std::vector<int> sortedNums = this->_nums; 
     std::sort(sortedNums.begin(), sortedNums.end());
 
     size_t shortestSpan = UINT_MAX;
@@ -110,7 +123,7 @@ size_t Span::longestSpan() const
     if (this->_nums.size() < 2)
     throw NoSpanFound();
 
-    std::vector<int> sortedNums = this->_nums; // to not change the actual vector
+    std::vector<int> sortedNums = this->_nums;
 
     size_t maxNum = *std::max_element(sortedNums.begin(), sortedNums.end());
     size_t minNum = *std::min_element(sortedNums.begin(), sortedNums.end());
@@ -129,7 +142,6 @@ const char* Span::NoSpanFound::what() const noexcept
     return "No span can be found.";
 }
 
-// print
 std::ostream& operator<<(std::ostream &out, const std::vector<int>& v)
 {
     for (int i = 0; i < v.size(); i++)

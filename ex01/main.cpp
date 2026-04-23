@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+        */
+/*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 00:27:53 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/22 13:32:46 by pauladretta      ###   ########.fr       */
+/*   Updated: 2026/04/24 01:15:25 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,41 @@
 
 int main ()
 {
-    Span testSpan(20); // change size here
+    Span sp1(20); // change size here for error: span is full
     try
     {
-        testSpan.addNumber(10);
-        testSpan.addNumber(22);
-        testSpan.addNumber(20);
-        // testSpan.addNumber(50); // error: span is full
-        // std::cout << "{" << testSpan.getNums().size() << "}" << std::endl;
-        // std::cout << "{" << testSpan._N << "}" << std::endl;
+        // Test 1 - calculate spans
+        std::cout << BLUE << "TEST 1 - calculate spans" << RESET << std::endl;
+        sp1.addNumber(10);
+        sp1.addNumber(22);
+        sp1.addNumber(20);
 
-        // // std::cout << "Shortest Span: " << testSpan.shortestSpan() << std::endl;
-        // std::cout << "Longest Span: " << testSpan.longestSpan() << std::endl;
+        std::cout << "Shortest Span: " << sp1.shortestSpan() << std::endl;
+        std::cout << "Longest Span: " << sp1.longestSpan() << std::endl;
 
-        // addMultipleNumbers
-        Span newSpan(10);
-        newSpan.addNumber(78);
-        newSpan.addNumber(43);
-        newSpan.addNumber(22);
-        newSpan.addNumber(3);
+        // Test 2 - insert range
+        std::cout << BLUE << "TEST 2 - insert a range of integers into span" << RESET << std::endl;
+        Span sp2(10);
+        sp2.addNumber(77);
+        sp2.addNumber(44);
+        sp2.addNumber(55);
+        sp2.addNumber(33);
         
-        std::vector<int>::iterator begin = newSpan.getNums().begin();
-         std::cout << "{ it2 = " << *(begin) << "}" << std::endl;
-        std::vector<int>::iterator end = (newSpan.getNums().end())-1;
+        std::vector<int>::iterator begin = sp2.getNums().begin();
+        std::vector<int>::iterator end = sp2.getNums().end();
         
-    //     while(begin != end)
-    // {
-    //      std::cout << "{ it = " << *(begin) << "}" << std::endl;
-    //     begin++;
-    // }
-        // std::cout << "{" << *(newSpan.getNums().begin()) << "}" << std::endl;
-        // std::cout << "{" << *(newSpan.getNums().end() - 1) << "}" << std::endl;
-        std::cout << "{" << newSpan.getNums() << "}" << std::endl;
-        testSpan.addMultipleNumbers(begin, end);
-        std::cout << "{" << testSpan.getNums() << "}" << std::endl;
+        std::cout << "Range of integers: " << "{" << sp2.getNums() << "}" << std::endl;
+        sp1.addMultipleNumbers(begin, end);
+        std::cout << "New complete span: " << "{" << sp1.getNums() << "}" << std::endl;
+
+        // Test 3 - span with 10,000 numbers
+        std::cout << BLUE << "TEST 3 - test span with 10,000 numbers" << RESET << std::endl;
+        Span sp3(10000);
+        for (int i = 0; i < 10000; i++)
+        {
+            sp3.addNumber(i);
+        }
+        std::cout << sp3.getNums() << std::endl;
     }
     catch(std::exception &e)
     {
@@ -56,6 +57,7 @@ int main ()
     
     return 0;
 }
+
 
 
 // main from subject
