@@ -16,8 +16,8 @@
 class Span
 {
     private: 
-        unsigned int _N; // size/capacity of vector
         std::vector<int> _nums; // vector filled w digits/numbers
+        unsigned int _N; // size/capacity of vector
 
     public:
         // default constructor
@@ -31,12 +31,12 @@ class Span
         // destructor
         ~Span();
         // getters
-        std::vector<int> getNums();
+        std::vector<int> &getNums();
         // member function
         void addNumber(int num);
         size_t shortestSpan() const;
         size_t longestSpan() const;
-        void addMultipleNumbers();
+        void addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         // exceptions
         class SpanIsFull : public std::exception
         {

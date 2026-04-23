@@ -7,8 +7,10 @@ Span::Span() : _N(UINT_MAX)
 }
 
 // personalized constructor
-Span::Span(unsigned int n) : _N(n)
+Span::Span(unsigned int n)
 {
+    // std::cout << "{ n w p const" << _N << "}" << std::endl;
+    this->_N = n;
     std::cout << GREEN << "Span created with personalized constructor." << RESET << std::endl;
 }
 
@@ -50,7 +52,7 @@ Span::~Span()
 }
 
 // getters
-std::vector<int> Span::getNums()
+std::vector<int> &Span::getNums()
 {
     return this->_nums;
 }
@@ -74,9 +76,9 @@ Fill your Span using a range of iterators.
 Making thousands of calls to addNumber() is so annoying. 
 Implement a member function to add multiple numbers to your Span in a single call.
 */
-void Span::addMultipleNumbers()
+void Span::addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-    // TODO: implement ft
+    this->_nums.insert(this->_nums.end() -1, begin, end);
 }
 
 /*
