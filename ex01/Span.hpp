@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 01:14:42 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/24 01:14:44 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/27 23:04:06 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Span
 {
     private: 
         std::vector<int> _nums; // vector filled w digits/numbers
-        unsigned int _N; // size/capacity of vector
-
+        unsigned int _maxSize; // size/capacity of vector
+                
     public:
         // default constructor
         Span();
@@ -48,7 +48,7 @@ class Span
         void addNumber(int num);
         size_t shortestSpan() const;
         size_t longestSpan() const;
-        void addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        void addRangeOfNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         // exceptions
         class SpanIsFull : public std::exception
         {
@@ -63,6 +63,6 @@ class Span
 };
 
 // output operator
-std::ostream& operator<<(std::ostream &out, const std::vector<int>& v);
+std::ostream& operator<<(std::ostream &out, const std::vector<int> &v);
 
 #endif

@@ -6,38 +6,37 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 01:14:32 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/24 01:14:35 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/27 23:05:09 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 // default constructor
-Span::Span() : _N(UINT_MAX)
+Span::Span() : _maxSize(UINT_MAX)
 {
-    std::cout << GREEN << "Span created with default constructor." << RESET << std::endl;
+    // std::cout << GREEN << "Span created with default constructor." << RESET << std::endl;
 }
 
 // personalized constructor
 Span::Span(unsigned int n)
 {
-    // std::cout << "{ n w p const" << _N << "}" << std::endl;
-    this->_N = n;
-    std::cout << GREEN << "Span created with personalized constructor." << RESET << std::endl;
+    this->_maxSize = n;
+    // std::cout << GREEN << "Span created with personalized constructor." << RESET << std::endl;
 }
 
 // copy constructor
 Span::Span(const Span &other)
 {
-    _N = other._N;
+    _maxSize = other._maxSize;
     
     this->_nums.clear();
     // change capacity/size of this vector to capacity of other.vector
-    this->_nums.resize(other._N);
+    this->_nums.resize(other._maxSize);
     // put content into 
     std::copy(other._nums.begin(), other._nums.end(), this->_nums.begin());
 
-    std::cout << GREEN << "Span created with copy constructor." << RESET << std::endl;
+    // std::cout << GREEN << "Span created with copy constructor." << RESET << std::endl;
 }
 
 // copy assignment operator
@@ -45,22 +44,23 @@ Span Span::operator=(const Span &other)
 {
     if (this != &other)
     {
-        _N = other._N;
+        _maxSize = other._maxSize;
     
         this->_nums.clear();
         // change capacity/size of this vector to capacity of other.vector
-        this->_nums.resize(other._N);
+        this->_nums.resize(other._maxSize);
         // put content into 
         std::copy(other._nums.begin(), other._nums.end(), this->_nums.begin());
     }
-    std::cout << GREEN << "Span created with copy assignment oeprator." << RESET << std::endl;
+    // std::cout << GREEN << "Span created with copy assignment oeprator." << RESET << std::endl;
+    
     return *this;
 }
 
 // destructor
 Span::~Span()
 {
-    std::cout << RED << "Span destroyed with destructor." << RESET << std::endl;
+    // std::cout << RED << "Span destroyed with destructor." << RESET << std::endl;
 }
 
 // getters
@@ -76,7 +76,7 @@ should throw an exception.
 */
 void Span::addNumber(int num)
 {
-    if (!(this->_nums.size() < this->_N))
+    if (!(this->_nums.size() < this->_maxSize))
         throw SpanIsFull();
 
     this->_nums.push_back(num);
@@ -87,11 +87,14 @@ Fill your Span using a range of iterators.
 Making thousands of calls to addNumber() is so annoying. 
 Implement a member function to add multiple numbers to your Span in a single call.
 */
-void Span::addMultipleNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-    if (this->_nums.size() >= this->_N)
-        throw SpanIsFull();
+void Span::addRangeOfNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{    
+    size_t elementsToAdd = std::distance(begin, end);
 
+    size_t futureSize = this->_nums.size() + elementsToAdd;
+    if (futureSize > this->_maxSize)
+        throw SpanIsFull();
+        
     this->_nums.insert(this->_nums.end(), begin, end);
 }
 
@@ -134,15 +137,15 @@ size_t Span::longestSpan() const
 
 const char* Span::SpanIsFull::what() const noexcept
 {
-    return "Span container is already full.";
+    return "❌ Span container is already full.";
 }
 
 const char* Span::NoSpanFound::what() const noexcept
 {
-    return "No span can be found.";
+    return "❌ No span can be found.";
 }
 
-std::ostream& operator<<(std::ostream &out, const std::vector<int>& v)
+std::ostream& operator<<(std::ostream &out, const std::vector<int> &v)
 {
     for (int i = 0; i < v.size(); i++)
     {

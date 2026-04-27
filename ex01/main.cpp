@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 00:27:53 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/24 01:15:25 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/27 23:04:07 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main ()
         sp1.addNumber(10);
         sp1.addNumber(22);
         sp1.addNumber(20);
-
+        
         std::cout << "Shortest Span: " << sp1.shortestSpan() << std::endl;
         std::cout << "Longest Span: " << sp1.longestSpan() << std::endl;
-
+        
         // Test 2 - insert range
         std::cout << BLUE << "TEST 2 - insert a range of integers into span" << RESET << std::endl;
         Span sp2(10);
@@ -37,9 +37,10 @@ int main ()
         std::vector<int>::iterator begin = sp2.getNums().begin();
         std::vector<int>::iterator end = sp2.getNums().end();
         
-        std::cout << "Range of integers: " << "{" << sp2.getNums() << "}" << std::endl;
-        sp1.addMultipleNumbers(begin, end);
-        std::cout << "New complete span: " << "{" << sp1.getNums() << "}" << std::endl;
+        std::cout << "Span contents before addition: " << "{" << sp1.getNums() << "}" << std::endl;
+        std::cout << "Span contents being added: " << "{" << sp2.getNums() << "}" << std::endl;
+        sp1.addRangeOfNumbers(begin, end);
+        std::cout << "Span contents after addition: " << "{" << sp1.getNums() << "}" << std::endl;
 
         // Test 3 - span with 10,000 numbers
         std::cout << BLUE << "TEST 3 - test span with 10,000 numbers" << RESET << std::endl;
@@ -48,11 +49,11 @@ int main ()
         {
             sp3.addNumber(i);
         }
-        std::cout << sp3.getNums() << std::endl;
+        // std::cout << sp3.getNums() << std::endl;
     }
     catch(std::exception &e)
     {
-        std::cerr << e.what() << std::endl;
+        std::cerr << RED << e.what() << RESET << std::endl;
     }
     
     return 0;

@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 12:25:21 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/24 00:41:14 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/27 23:32:36 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class MutantStack : public std::stack<T>
 /*
 return an iterator that points to the beginning of the stack
 - c is a member variable inside std::stack
-- stands for the underlying container (usually a std::deque<T>)
+- stands for the underlying container
 */
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()

@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 12:25:19 by pauladretta       #+#    #+#             */
-/*   Updated: 2026/04/24 00:47:01 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/27 23:24:12 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main ()
     // Test 1 - begin
     {
         std::cout << BLUE << "**** TEST 1 - get oldest element in bottom of stack & iterating ****" << RESET << std::endl;
-        std::cout << "Oldest element in stack: " << *ms.begin() << std::endl;
-        MutantStack<int>::const_iterator it = ms.begin();
+        std::cout << "Oldest element in stack: " << *ms.cbegin() << std::endl;
+        MutantStack<int>::const_iterator it = ms.cbegin();
         // (*it)++; // cannot change value bc it is a constant iterator
         it++;
         std::cout << "Next element in stack: " << *it << std::endl;
@@ -32,8 +32,8 @@ int main ()
     // Test 2 - end
     {
         std::cout << BLUE << "**** TEST 2 - get element past the end of stack & iterating to newest element/top ****" << RESET << std::endl;
-        std::cout << "Past-the-last element in stack: " << *ms.end() << std::endl;
-        MutantStack<int>::const_iterator it = ms.end();
+        std::cout << "Past-the-last element in stack: " << *ms.cend() << std::endl;
+        MutantStack<int>::const_iterator it = ms.cend();
         it--;
         std::cout << "Newest element in stack: " << *it << std::endl;
     }
