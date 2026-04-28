@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pauladrettas <pauladrettas@student.42.f    +#+  +:+       +#+         #
+#    By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/14 22:46:18 by pdrettas          #+#    #+#              #
-#    Updated: 2026/04/20 14:09:30 by pauladretta      ###   ########.fr        #
+#    Updated: 2026/04/28 17:52:59 by pdrettas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ			=	$(SRC:.cpp=.o)
 			
 CXX			=	c++
 
-CXXFLAGS	=	 -std=c++17
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++17
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)

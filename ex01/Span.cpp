@@ -6,7 +6,7 @@
 /*   By: pdrettas <pdrettas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 01:14:32 by pdrettas          #+#    #+#             */
-/*   Updated: 2026/04/27 23:05:09 by pdrettas         ###   ########.fr       */
+/*   Updated: 2026/04/28 18:07:45 by pdrettas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ size_t Span::shortestSpan() const
     std::sort(sortedNums.begin(), sortedNums.end());
 
     size_t shortestSpan = UINT_MAX;
-    for (int i = 0; i < sortedNums.size() - 1; i++)
+    for (size_t i = 0; i < sortedNums.size() - 1; i++)
     {
         size_t span = sortedNums[i + 1] - sortedNums[i];
         if (span < shortestSpan)
@@ -147,7 +147,7 @@ const char* Span::NoSpanFound::what() const noexcept
 
 std::ostream& operator<<(std::ostream &out, const std::vector<int> &v)
 {
-    for (int i = 0; i < v.size(); i++)
+    for (size_t i = 0; i < v.size(); i++)
     {
         if ((i + 1) == v.size())
             out << v[i];
