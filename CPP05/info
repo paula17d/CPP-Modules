@@ -1,0 +1,78 @@
+CPP05 Overview -  Repetition and Exceptions
+
+LEARN concepts / new functions
+- throw exceptions (throw an error), ex00
+- try and catch blocks, ex00
+- concrete classes, ex02
+
+REPEAT
+- instantiate, ex00
+- overload operator (<< insertion), ex00
+- switch (instead of ifelseifelse), ex03
+
+
+
+
+overview of cpp05
+https://42-cursus.gitbook.io/guide/5-rank-05/cpp-05-09-to-do/cpp05?utm_source=chatgpt.com
+- will learn how to create exceptions (try, throw & catch)
+- will create own class exceptions
+
+
+Try, Throw & Catch
+- a way to handle errors without breaking the program's structure
+- seperates normal logic from error logic (cleaner code, error handling is somewhere else -> no interrupting return value)
+- however do not use when expected behavior (like checking if a file exists) (only for when this should not happen in normal execution)
+- ex. if (something_wrong)
+        return -1;
+    INSTEAD 
+      if (something_wrong) 
+        throw MyException();
+Examples of each
+- try (defines the code to test) (ex. if division == 0) (ex. if age == 15)
+- throw (triggers an exception) (ex. throw 505 error code) (ex. throw (age))
+- catch (handles the error) (ex. input error code, and prints "error occured with 505") (ex. "access denied - must be 18. age is xyage")
+
+
+
+
+Exception class
+define: is a special class used to represent an error
+to use an exception class: 
+- first, define the class by derividing it from the standard exception class std::exception
+- at least one constructor (takes one or more arguments that describes details of the exception and other methods)
+
+- to throw an exception, use "throw" followed by an instance of the exception class
+
+
+- without std::exception id have to catch every error type seperatly
+- they derive from std::exception so that all my exceptions share a common interface & can be caught generically
+- having Exceptioni class inherit from std::exception allows the catch block to catch any derived exception
+
+
+
+what throw does
+if (grade > 150)
+    throw GradeTooLowException();
+1. creates an exception object
+2. stops execution of the current function
+3. jumps to the nearest matching catch 
+
+
+
+the throw has the message but only catch decides what to do with it like printing.
+the catch block is the only place you should actually print
+
+virtual const char* what() const noexcept;
+- a virtual function defined in std::exception
+- returns a c-style string (const char*)
+- string is the error message describing the exception
+- noexcept just means it guarantees it wont throw another exception
+
+
+
+exception classes
+- std::excpetion class is the base class for all the other exception classes
+- what() function returns the string describing the type of exception
+
+nested classes (a class within a class)
